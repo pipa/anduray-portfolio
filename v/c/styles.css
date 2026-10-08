@@ -169,3 +169,5 @@ html.menu-open { overflow: hidden; }
 html { scroll-padding-top: calc(var(--header-h) + 16px); }
 @media (max-width: 767px) { .nav .opt { display: none; } .menu-btn { display: inline-block; } }
 @media (prefers-reduced-motion: reduce) { .menu { transition: none; transform: none; } }
+
+.menu[hidden] { display: none; }
