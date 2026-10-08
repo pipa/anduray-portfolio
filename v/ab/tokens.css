@@ -1,0 +1,85 @@
+/* A+B mix: A "Window" with B "Press check" proof sheets. Design + motion tokens. Change values here, never inline. */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+:root {
+  /* colour (contrast on --paper: ink 17.0, muted 6.6, accent 5.6; on --ink: paper 17.0, muted-on-ink 6.9, accent-on-ink 5.4) */
+  --paper: #F3F0E8;
+  --ink: #151412;
+  --muted: #5C574E;
+  --muted-on-ink: #A39E93;
+  --rule: #D8D2C4;
+  --rule-on-ink: #34312C;
+  --accent: #B23516;
+  --accent-on-ink: #E2542E;
+
+  /* type */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --wdth-display: 68;
+  --size-h2: clamp(56px, 9vw, 168px);
+  --size-h3: clamp(34px, 3.6vw, 64px);
+  --size-big: clamp(24px, 2.6vw, 44px);
+  --size-lede: clamp(18px, 1.5vw, 23px);
+  --size-body: 17px;
+  --size-label: 12px;
+  --size-mail: clamp(40px, 8.6vw, 168px);
+  --track-label: 0.08em;
+
+  /* layout */
+  --max: 1680px;
+  --margin: clamp(20px, 4vw, 72px);
+  --gutter: clamp(16px, 2vw, 32px);
+  --header-h: 60px;
+  --section-gap: clamp(112px, 14vw, 240px);
+  --case-gap: clamp(120px, 16vw, 280px);
+
+  /* hero */
+  --stage-h: 320vh;          /* scroll length of the dive */
+  --stage-h-phone: 240vh;
+  --name-stroke: 3px;        /* solid ink outline on the name: 17:1 against paper */
+  --intro-from: 9;           /* the wall starts 9x and contracts into the letters */
+  --zoom-max: 70;            /* how far the camera dives through the O */
+
+  /* motion: easing */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* motion: durations (ms values are read by main.js) */
+  --dur-quick: 320ms;
+  --dur-hover: 220ms;
+  --dur-reveal: 1100ms;
+  --dur-intro: 1400;
+  --dur-col-min: 48;         /* seconds per loop of a poster column */
+  --stagger-reveal: 90ms;
+  --rise: 56px;
+  --scale-from: 1.14;
+
+  /* proof sheets (from B): marks, colour bars, process inks */
+  --rule-strong: #B9B2A3;
+  --cyan: #00AEEF;
+  --magenta: #EC008C;
+  --yellow: #FFE600;
+  --cyan-50: #7FD6F7;
+  --magenta-50: #F57FC5;
+  --yellow-50: #FFF27F;
+  --k-50: #8A8986;
+  --slug-wdth: 86;
+  --size-slug: 11px;
+  --track-slug: 0.1em;
+  --mark-w: 1px;
+  --crop-len: 24px;
+  --crop-gap: 8px;
+  --chip-w: 14px;
+  --chip-h: 7px;
+  --sheet-head-gap: clamp(32px, 3.4vw, 56px);
+
+  /* motion: press reveal, once per sheet (from B) */
+  --ease-spring: linear(0, 0.05 2.8%, 0.173 5.6%, 0.335 8.3%, 0.51 11.1%, 0.676 13.9%, 0.822 16.7%, 0.939 19.4%, 1.025 22.2%, 1.083 25%, 1.115 27.8%, 1.126 30.6%, 1.122 33.3%, 1.108 36.1%, 1.088 38.9%, 1.066 41.7%, 1.045 44.4%, 1.026 47.2%, 1.01 50%, 0.999 52.8%, 0.991 55.6%, 0.986 58.3%, 0.984 61.1%, 0.984 63.9%, 0.986 66.7%, 0.988 69.4%, 0.991 72.2%, 0.994 75%, 0.996 77.8%, 0.998 80.6%, 1 83.3%, 1.001 86.1%, 1.002 88.9%, 1.002 91.7%, 1.002 94.4%, 1.002 97.2%, 1);
+  --dur-mark: 900ms;
+  --dur-sep: 1100ms;          /* the three plates pull into register */
+  --stagger-sep: 110ms;
+  --stagger-proof: 70ms;      /* between pictures on one sheet */
+  --sep-y: -18px 12px;
+  --sep-m: 15px -9px;
+  --sep-c: -9px -15px;
+}
