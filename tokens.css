@@ -1,0 +1,59 @@
+/* Design + motion tokens. Change values here, never inline. */
+:root {
+  /* colour */
+  --paper: #F3F0E8;
+  --ink: #151412;
+  --muted: #5C574E;
+  --muted-on-ink: #A39E93;
+  --rule: #D8D2C4;
+  --rule-on-ink: #34312C;
+  --accent: #B23516;
+
+  /* type */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display-wdth: 68;
+  --display-wght: 800;
+  --size-name: clamp(52px, 11.6vw, 168px);
+  --size-h2: clamp(40px, 6vw, 96px);
+  --size-h3: clamp(30px, 3.4vw, 54px);
+  --size-clients: clamp(24px, 2.6vw, 40px);
+  --size-lede: clamp(19px, 1.6vw, 24px);
+  --size-body: 18px;
+  --size-label: 12px;
+  --lh-display: 0.88;
+  --lh-body: 1.55;
+  --track-label: 0.08em;
+
+  /* layout */
+  --max: 1440px;
+  --margin: clamp(20px, 4vw, 64px);
+  --gutter: 24px;
+  --header-h: 64px;
+  --section-gap: clamp(96px, 12vw, 200px);
+
+  /* motion: easing */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint */
+  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);      /* ease-in-expo */
+
+  /* motion: durations */
+  --dur-feedback: 150ms;
+  --dur-hover: 200ms;
+  --dur-hero-word: 700ms;
+  --dur-hero-img: 900ms;
+  --dur-reveal: 800ms;
+
+  /* motion: stagger + distance */
+  --stagger-word: 90ms;
+  --stagger-hero-img: 120ms;
+  --stagger-reveal: 60ms;
+  --delay-hero-img: 300ms;
+  --rise-word: 0.35em;
+  --rise-img: 32px;
+  --scale-reveal: 1.03;
+  --scale-hover: 1.02;
+}
+@media (max-width: 767px) {
+  :root { --gutter: 16px; --size-body: 16px; --header-h: 56px; }
+}
