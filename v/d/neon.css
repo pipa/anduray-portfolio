@@ -13,7 +13,7 @@ html {
   color: var(--text);
 }
 
-/* ---- the toggle: <button class="neon-toggle" data-neon-toggle aria-pressed> - */
+/* ---- the toggle: <button class="neon-toggle" data-neon-toggle data-on> - */
 .neon-toggle {
   display: inline-flex;
   flex: none;               /* never squeezed by a flex header (min-width would allow it) */
@@ -52,7 +52,7 @@ html:not([data-mode]) .neon-toggle { display: none; }
   .neon-toggle:focus-visible { outline-color: Highlight; }
 }
 
-/* The switch graphic. Decorative (aria-hidden); state is aria-pressed. */
+/* The switch graphic. Decorative (aria-hidden); state is data-on, set by neon.js. */
 .neon-toggle__switch {
   position: relative;
   flex: none;
@@ -73,15 +73,15 @@ html:not([data-mode]) .neon-toggle { display: none; }
   transform: translateX(0);
   transition: transform var(--dur-feedback) var(--ease-premium);
 }
-.neon-toggle[aria-pressed="true"] .neon-toggle__switch { background: var(--toggle-track-on); }
-.neon-toggle[aria-pressed="true"] .neon-toggle__switch::after {
+.neon-toggle[data-on="true"] .neon-toggle__switch { background: var(--toggle-track-on); }
+.neon-toggle[data-on="true"] .neon-toggle__switch::after {
   background: var(--toggle-knob-on);
   transform: translateX(14px);
 }
 @media (forced-colors: active) {
   .neon-toggle__switch { border: 1px solid ButtonText; background: Canvas; }
   .neon-toggle__switch::after { background: ButtonText; top: 2px; left: 2px; }
-  .neon-toggle[aria-pressed="true"] .neon-toggle__switch { background: Highlight; }
+  .neon-toggle[data-on="true"] .neon-toggle__switch { background: Highlight; }
 }
 
 /* ---- glow hook ---------------------------------------------------------------

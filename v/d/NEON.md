@@ -37,7 +37,7 @@ page renders day (day values sit on `:root`) and the button is hidden (it can't 
 </button>
 ```
 
-- Keep the label **constant** ("Lights off"); `aria-pressed="true"` means the lights are off.
+- The label names the action: "Lights off" in day, "Lights on" in neon. `neon.js` swaps the text and sets `data-on` (which drives the switch graphic); there is no `aria-pressed`, since a pressed state plus a changing label would contradict each other.
   Changing the label as well as the pressed state makes screen readers announce a contradiction.
 - If you hide the visible label (icon-only), keep it as `.visually-hidden` text or add
   `aria-label="Lights off"`.

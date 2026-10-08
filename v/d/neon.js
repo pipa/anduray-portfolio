@@ -2,7 +2,7 @@
  * Load with <script src="neon.js" defer></script>, after the inline head snippet
  * (see NEON.md) has already set <html data-mode> before first paint.
  *
- * - Any <button data-neon-toggle aria-pressed="false"> toggles the mode
+ * - Any <button data-neon-toggle> toggles the mode
  *   (event delegation, so buttons added later, e.g. in the phone menu, work too).
  * - The mode is <html data-mode="day|neon">. A user's choice is saved in
  *   localStorage ("anduray-d-mode") and synced across open tabs.
@@ -70,7 +70,12 @@
   const sync = () => {
     const on = root.dataset.mode === 'neon';
     document.querySelectorAll('[data-neon-toggle]').forEach((b) => {
-      b.setAttribute('aria-pressed', String(on));
+      // The label names what a click does: "Lights off" in day, "Lights on" in neon.
+      // No aria-pressed: a changing label plus a pressed state would read as a contradiction.
+      b.dataset.on = String(on);
+      b.removeAttribute('aria-pressed');
+      const label = b.querySelector('.neon-toggle__label');
+      if (label) label.textContent = on ? 'Lights on' : 'Lights off';
     });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', getComputedStyle(root).getPropertyValue('--surface').trim());
