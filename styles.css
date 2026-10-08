@@ -1,3 +1,6 @@
+/* Archivo variable (SIL OFL 1.1, assets/fonts/OFL.txt), self-hosted so the hero name doesn't wait on a third-party stylesheet */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -11,6 +14,7 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; transition: text-underline-offset var(--dur-feedback) var(--ease-enter), color var(--dur-feedback) var(--ease-enter); }
 a:hover { text-underline-offset: 0.34em; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.band :focus-visible, .contact :focus-visible { outline-color: var(--accent-on-ink); } /* vermilion is 2.7:1 on ink, too low for a focus ring */
 .skip { position: absolute; left: var(--margin); top: -100px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 10; }
 .skip:focus { top: 8px; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--margin); }
@@ -69,6 +73,13 @@ a:hover { text-underline-offset: 0.34em; }
   .m-row5 figure { scroll-snap-align: start; }
 }
 @media (max-width: 767px) { .m-row5 { grid-auto-columns: 72%; } }
+/* small screens: the row runs off the right edge so it reads as "more this way", plus a hint */
+.swipe { display: none; margin: 14px 0 0; color: var(--muted-on-ink); }
+.swipe span { display: inline-block; margin-left: 6px; }
+@media (max-width: 1023px) {
+  .m-row5 { margin-right: calc(-1 * var(--margin)); padding-right: var(--margin); scroll-padding-inline: 0; }
+  .swipe { display: block; }
+}
 .m-split { grid-template-columns: repeat(12, 1fr); }
 .m-split figure:nth-child(1) { grid-column: 1 / span 4; }
 .m-split figure:nth-child(2) { grid-column: 5 / span 4; margin-top: 72px; }
@@ -184,7 +195,8 @@ a:hover { text-underline-offset: 0.34em; }
   /* hero entrance: lines slide in from opposite sides, posters drop in */
   .js .name .l1 .w { opacity: 0; transform: translateX(calc(-1 * var(--shift-line))); }
   .js .name .l2 .w { opacity: 0; transform: translateX(var(--shift-line)); }
-  .js .hero .p img { opacity: 0; transform: translateY(var(--rise-img)) scale(var(--scale-drop)); }
+  .js .hero .p img { transform: translateY(var(--rise-img)) scale(var(--scale-drop)); }
+  .js .hero .p2 img, .js .hero .p3 img { opacity: 0; }
   .js .hero .intro { opacity: 0; }
   .js.ready .name .w { opacity: 1; transform: none; transition: opacity var(--dur-hero-word) var(--ease-enter), transform var(--dur-hero-line) var(--ease-enter); }
   .js.ready .name .l2 .w { transition-delay: var(--stagger-line); }

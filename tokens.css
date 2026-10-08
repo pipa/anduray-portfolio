@@ -57,6 +57,7 @@
   --delay-hero-img: 300ms;
   --stagger-line: 90ms;
   --delay-intro: 650ms;
+  --font-wait: 200ms;  /* max wait for the font before the hero plays (read by main.js) */
   --rise-word: 0.35em;
   --rise-img: 32px;
   --scale-reveal: 1.03;
@@ -103,5 +104,5 @@
   }
 }
 @media (max-width: 767px) {
-  :root { --gutter: 16px; --size-body: 16px; --header-h: 56px; }
+  :root { --gutter: 16px; --size-body: 16px; --header-h: 56px; --delay-intro: 300ms; }
 }
