@@ -163,3 +163,5 @@ html { scroll-padding-top: calc(var(--header-h) + 16px); }
 @media (prefers-reduced-motion: reduce) { .menu { transition: none; transform: none; } }
 .hp .frame { aspect-ratio: 900 / 1225; }
 .hp .frame img { height: 100%; object-fit: cover; }
+
+.menu[hidden] { display: none; }
