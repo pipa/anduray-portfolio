@@ -1,0 +1,44 @@
+/* Version E "Top-tier studio": design + motion tokens. Change values here, never inline. */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+:root {
+  /* colour: the work is the colour. ink on bg 18.4:1, muted 5.3:1, rule is decoration only */
+  --bg: #FAFAF7;
+  --ink: #111110;
+  --muted: #6A6964;
+  --rule: #E2E1DC;
+  --tile: #EFEEEA;
+  --paper: #FAFAF7;   /* used by the shared menu */
+  --accent: #111110;
+  --accent-on-ink: #FAFAF7;
+
+  /* type: one family, normal width, two weights, small sizes, one big statement */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --size-statement: clamp(28px, 3.5vw, 64px);
+  --size-h3: clamp(18px, 1.4vw, 24px);
+  --size-index: clamp(22px, 2.4vw, 44px);
+  --size-mail: clamp(24px, 6vw, 112px);
+  --size-body: 15px;
+  --size-small: 13px;
+  --track-statement: -0.025em;
+
+  /* layout */
+  --max: 1760px;
+  --margin: clamp(16px, 2.4vw, 40px);
+  --gutter: clamp(12px, 1.4vw, 24px);
+  --header-h: 56px;
+  --section-gap: clamp(120px, 14vw, 260px);
+  --case-gap: clamp(140px, 16vw, 300px);
+
+  /* motion: slow and quiet */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-quick: 320ms;
+  --dur-hover: 400ms;
+  --dur-reveal: 1400ms;
+  --stagger-hero: 110ms;
+  --rise: 28px;
+  --scale-from: 1.08;
+  --prev-w: 280px;           /* index hover preview */
+  --prev-lag: 0.16;          /* follow factor per frame (read by main.js) */
+}
