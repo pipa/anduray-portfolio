@@ -187,6 +187,7 @@ a:hover { text-underline-offset: 0.34em; }
 .sec-title { display: grid; font-size: var(--size-h2); font-variation-settings: "wdth" var(--display-wdth); font-weight: var(--display-wght); text-transform: uppercase; line-height: var(--lh-display); letter-spacing: -0.01em; margin: 0; }
 .sec-title > * { grid-area: 1 / 1; }
 .gp { mix-blend-mode: multiply; opacity: 0; }
+.gp::before { content: attr(data-t); }
 .gp-c { color: var(--cyan); } .gp-m { color: var(--magenta); } .gp-y { color: var(--yellow); }
 .sec-meta { margin: 0 0 0.4em; color: var(--muted); }
 a.sec-meta { color: var(--accent); }
@@ -552,3 +553,10 @@ html.still *, html.still *::before, html.still *::after { transition: none !impo
 @keyframes knock-c { from { opacity: 1; translate: var(--ghost-c); } 80% { opacity: 1; } to { opacity: 0; translate: 0 0; } }
 @keyframes knock-m { from { opacity: 1; translate: var(--ghost-m); } 80% { opacity: 1; } to { opacity: 0; translate: 0 0; } }
 @keyframes knock-y { from { opacity: 1; translate: var(--ghost-y); } 80% { opacity: 1; } to { opacity: 0; translate: 0 0; } }
+
+/* phone fit: no sideways scroll from offset plate edges or the stamp, and keep the hero slug clear of the top register mark */
+html { overflow-x: clip; }
+@media (max-width: 479px) {
+  .hero-slug .slug-x { display: none; }
+  .hero .reg-t { display: none; }
+}

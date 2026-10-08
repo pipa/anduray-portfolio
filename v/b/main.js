@@ -28,6 +28,14 @@
   const scrollTimeline = CSS.supports && CSS.supports('animation-timeline: view()');
   window.__press = true;
 
+  /* ---------- sideways poster rows get a tab stop only while they actually scroll ---------- */
+  const rows = document.querySelectorAll('.m-row5');
+  const syncRows = () => rows.forEach((r) => {
+    if (r.scrollWidth > r.clientWidth + 1) r.setAttribute('tabindex', '0'); else r.removeAttribute('tabindex');
+  });
+  syncRows();
+  addEventListener('resize', syncRows, { passive: true });
+
   /* ---------- header: rule once stuck, current sheet in the slug ---------- */
   const top = document.querySelector('.top');
   const onScroll = () => top.classList.toggle('is-stuck', scrollY > 8);
@@ -261,7 +269,7 @@
       const s = document.createElement('span');
       s.className = 'gp gp-' + key;
       s.setAttribute('aria-hidden', 'true');
-      s.textContent = text;
+      s.dataset.t = text; // drawn by ::before, so the decorative plates are never read as text
       h.appendChild(s);
     }
     const k = document.createElement('span');
