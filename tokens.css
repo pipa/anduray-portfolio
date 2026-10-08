@@ -1,26 +1,25 @@
-/* Design + motion tokens. Change values here, never inline. */
+/* Design + motion tokens. Change values here, never inline: styles.css and main.js both read them. */
 :root {
   /* colour */
   --paper: #F3F0E8;
   --ink: #151412;
-  --muted: #5C574E;
-  --muted-on-ink: #A39E93;
+  --muted: #5C574E;          /* 6.3:1 on paper */
+  --muted-on-ink: #A39E93;   /* 6.9:1 on ink */
   --rule: #D8D2C4;
   --rule-on-ink: #34312C;
-  --accent: #B23516;
-  --accent-on-ink: #E2542E;
+  --accent: #B23516;         /* vermilion, 5.4:1 on paper: labels, links, focus, the red pencil */
+  --accent-on-ink: #E2542E;  /* 4.9:1 on ink */
 
   /* type */
   --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --display-wdth: 68;
   --display-wght: 800;
-  --size-name: 20.5vw;
-  --lh-name: 0.8;
   --size-num: clamp(64px, 8.4vw, 150px);
-  --size-clients-run: clamp(56px, 8vw, 150px);
-  --size-h2: clamp(40px, 6vw, 96px);
-  --size-h3: clamp(30px, 3.4vw, 54px);
   --size-clients: clamp(24px, 2.6vw, 40px);
+  --size-clients-run: clamp(52px, 8.2vw, 158px);
+  --size-h2: clamp(44px, 7.4vw, 128px);
+  --size-h3: clamp(30px, 3.4vw, 54px);
+  --size-quote: clamp(40px, 6.2vw, 112px);
   --size-lede: clamp(19px, 1.6vw, 24px);
   --size-body: 18px;
   --size-label: 12px;
@@ -34,75 +33,137 @@
   --gutter: 24px;
   --header-h: 64px;
   --section-gap: clamp(96px, 12vw, 200px);
+  --case-gap: clamp(88px, 10vw, 168px);
+  --proof-pad: clamp(16px, 3vw, 48px);
 
-  /* motion: easing */
+  /* hero composition (desktop): the name is SVG, sized like type (1000 font units = 1 name-size) */
+  --hero-pad: clamp(12px, 1.6vw, 28px);
+  --name-size: 17vw;
+  --name-gap: 0.6vw;
+  --name-stroke: 1.6;                 /* px, the red-pencil outline */
+  --p1-w: 26.5vw; --p1-right: 3vw; --p1-top: 1.4vw;
+  --p2-w: 12.5vw; --p2-left: 44vw; --p2-top: 31.5vw; --p2-tilt: -3deg;
+  --p3-w: 10.5vw; --p3-left: 57.5vw; --p3-top: 35.5vw; --p3-tilt: 4deg;
+  --intro-w: min(44ch, 35vw);
+  --intro-mt: clamp(28px, 3.4vw, 60px);
+  --mark-stroke: 1.75;                /* px */
+
+  /* ink edges between paper and ink sections */
+  --edge-h: clamp(56px, 11vw, 190px);
+
+  /* La Montañita pinned row */
+  --pin-gap: 5vw;
+  --pin-head-w: 27vw;
+  --pin-poster-h: 64vh;
+  --pin-step: 7vh;
+  --quote-w: 62vw;
+
+  /* ---------- motion ---------- */
+  /* easing (CSS and GSAP read the same curves) */
   --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo */
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint */
   --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
+  --ease-draw: cubic-bezier(0.62, 0.02, 0.32, 1);  /* a pen stroke: hesitates, commits, lands */
+  --ease-flood: cubic-bezier(0.45, 0.05, 0.2, 1);  /* ink rising through a letter */
+  --ease-brush: cubic-bezier(0.5, 0.08, 0.2, 1);
   --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);      /* ease-in-expo */
-  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);   /* ease-out-back, position only */
 
-  /* motion: durations */
+  /* durations, delays, staggers */
   --dur-feedback: 150ms;
-  --dur-hover: 200ms;
-  --dur-hero-word: 700ms;
-  --dur-hero-img: 900ms;
-  --dur-reveal: 800ms;
-  --dur-hero-line: 900ms;
+  --dur-hover: 220ms;
+  --dur-header: 420ms;
+  --dur-draw: 1150ms;          /* one letter outline */
+  --stagger-draw: 75ms;
+  --stagger-draw-line: 160ms;
+  --delay-flood: 820ms;
+  --dur-flood: 1350ms;
+  --stagger-flood: 150ms;
+  --dur-outline-out: 600ms;
+  --delay-hero-img: 520ms;
+  --stagger-hero-img: 170ms;
+  --delay-intro: 900ms;
+  --dur-word: 900ms;
+  --stagger-word: 18ms;
+  --delay-marks: 1750ms;
+  --dur-mark: 620ms;
+  --stagger-mark: 180ms;
+  --dur-brush: 1150ms;
+  --stagger-brush: 130ms;
+  --dur-chars: 1000ms;
+  --stagger-chars: 32ms;
+  --dur-rule: 1100ms;
+  --dur-flip: 950ms;
+  --stagger-flip: 110ms;
+  --dur-plate: 560ms;
+  --dur-crop: 750ms;
+  --dur-reveal: 900ms;
+  --stagger-reveal: 70ms;
+  --failsafe: 4s;              /* hero shows itself if the motion script never arrives */
 
-  /* motion: stagger + distance */
-  --stagger-word: 90ms;
-  --stagger-hero-img: 120ms;
-  --stagger-reveal: 60ms;
-  --delay-hero-img: 300ms;
-  --stagger-line: 90ms;
-  --delay-intro: 650ms;
-  --font-wait: 200ms;  /* max wait for the font before the hero plays (read by main.js) */
-  --rise-word: 0.35em;
-  --rise-img: 32px;
-  --scale-reveal: 1.03;
-  --scale-hover: 1.02;
-  --scale-drop: 0.92;
-  --shift-line: 8vw;
+  /* distances, scales */
+  --rise-word: 105%;
+  --tilt-word: 7deg;
+  --scale-hover: 1.035;
+  --brush-width: 0.46;         /* stroke width as a share of the frame's short side */
+  --brush-bristles: 5;
 
-  /* scroll-linked distances */
-  --drift-line: 12vw;
-  --drift-p1: 18vh;
-  --drift-p2: 34vh;
-  --drift-p3: 50vh;
-  --run-from: 20vw;
-  --lens-frame: 0.88;
-  --lens-img: 1.2;
-  --depth-1: 0vh;
-  --depth-2: 8vh;
-  --depth-3: 16vh;
+  /* heat haze on the fire posters (SVG feTurbulence + feDisplacementMap, image pixels) */
+  --heat-freq-x: 0.010;
+  --heat-freq-y: 0.042;
+  --heat-octaves: 2;
+  --heat-tile: 360;            /* noise tile height; the haze rises one tile per cycle */
+  --heat-cycle: 2800ms;
+  --heat-scale: 13;            /* resting ripple */
+  --heat-ignite: 70;           /* ripple at load, settles to --heat-scale */
+  --dur-ignite: 2000ms;
+  --heat-lens: 38;             /* ripple under the cursor */
+  --heat-lens-r: 190;
+  --dur-heat-lens: 500ms;
 
-  /* hero composition (desktop) */
-  --hero-pad: clamp(12px, 1.6vw, 28px);
-  --p1-w: 27vw; --p1-right: -4vw; --p1-top: 3vw;
-  --p2-w: 13vw; --p2-left: 47vw; --p2-top: 29vw;
-  --p3-w: 11vw; --p3-left: 61vw; --p3-top: 33vw;
-  --intro-w: min(44ch, 34vw);
-  --intro-mt: clamp(28px, 3vw, 52px);
+  /* scroll */
+  --scroll-lerp: 0.1;          /* Lenis smoothing per frame */
+  --scrub: 0.7;                /* seconds a scrubbed animation lags the scroll */
+  --drift-line: 9vw;
+  --drift-p1: 14vh;
+  --drift-p2: 30vh;
+  --drift-p3: 46vh;
+  --depth-2: 7vh;
+  --depth-3: 15vh;
+  --edge-amp: 0.85;            /* wave height as a share of --edge-h */
+  --edge-waves: 2.2;
+  --skew-max: 6;               /* deg, client rows lean with scroll speed */
+  --skew-per-velocity: 0.22;
+  --fold-max: 89;              /* deg, the film posters fold almost flat */
+  --header-hide-after: 520px;
 
-  --proof-pad: clamp(16px, 3vw, 48px);
-
-  /* La Montañita pinned row */
-  --pin-height: 320vh;
-  --pin-gap: 5vw;
-  --pin-head-w: 28vw;
-  --pin-poster-h: 66vh;
-  --pin-step: 6vh;
+  /* cursor (fine pointers only) */
+  --cursor-size: 92px;
+  --cursor-follow: 0.2;        /* seconds behind the pointer */
+  --cursor-stretch: 0.0011;    /* squash and stretch per px/s */
+  --tilt: 5;                   /* deg, work leans toward the cursor */
 }
 @media (max-width: 1023px) {
   :root {
-    --size-name: 21vw;
-    --p1-w: 44vw; --p1-right: -10vw; --p1-top: 14vw;
-    --p2-w: 30vw; --p2-left: 12vw; --p2-top: 46vw;
+    --name-size: 22.4vw;
+    --name-gap: 1vw;
+    --p1-w: 46vw; --p1-right: 4vw; --p1-top: 27vw;
+    --p2-w: 29vw; --p2-left: 12vw; --p2-top: 47vw; --p2-tilt: -4deg;
     --intro-w: 100%;
-    --intro-mt: 64vw;
+    --intro-mt: 54vw;
+    --edge-h: clamp(48px, 13vw, 120px);
+    --drift-line: 6vw;
+    --drift-p1: 6vh; --drift-p2: 12vh;
   }
 }
 @media (max-width: 767px) {
-  :root { --gutter: 16px; --size-body: 16px; --header-h: 56px; --delay-intro: 300ms; }
+  :root {
+    --gutter: 16px; --size-body: 16px; --header-h: 56px;
+    --name-size: 23.4vw;
+    --name-gap: 1.6vw;
+    --p1-w: 56vw; --p1-right: 5.3vw; --p1-top: 34vw;
+    --p2-w: 33vw; --p2-left: 6vw; --p2-top: 47vw; --p2-tilt: -5deg;
+    --intro-mt: 66vw;
+    --delay-intro: 700ms;
+    --heat-lens-r: 150;
+  }
 }
