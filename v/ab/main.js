@@ -66,10 +66,10 @@
     ticking = false;
     if (!reduce && zoom) {
       const p = Math.min(1, Math.max(0, scrollY / (stage.offsetHeight - innerHeight)));
-      const z = Math.min(1, p / .8), s = Math.exp(z ** 2.2 * Math.log(zmax));
+      const z = Math.min(1, p / .9), s = Math.exp(z ** 2.2 * Math.log(zmax));
       zoom.setAttribute('transform', `translate(${target.x} ${target.y}) scale(${s}) translate(${-target.x} ${-target.y})`);
       meta.style.opacity = Math.max(0, 1 - p * 5);
-      next.style.opacity = Math.min(1, Math.max(0, (p - .6) / .22));
+      next.style.opacity = Math.min(1, Math.max(0, (p - .7) / .22));   // paper is full at p .92, so only a short blank tail before Selected work
     }
     if (!reduce) for (const w of wins) {   // each case number is a window: the picture drifts behind it
       const r = w.s.getBoundingClientRect();
