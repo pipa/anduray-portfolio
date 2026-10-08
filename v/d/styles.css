@@ -132,11 +132,11 @@ html.menu-open { overflow: hidden; }
 /* ---- phones ------------------------------------------------------------------- */
 @media (max-width: 767px) {
   .nav .opt { display: none; }
+  .nav { display: none; } /* Work is in the menu; frees room for the visible Lights label */
   .nav { gap: 0; }
   .menu-btn { display: inline-block; }
   .bar { gap: 14px; }
-  .bar .neon-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .bar .neon-toggle { padding: 0 11px; }
+  .bar .neon-toggle { padding: 0 10px; gap: 6px; }
   .card { transform: none; }
   .card__sheet { transform: none; }
   .card[data-in]:not(.in) .card__sheet { transform: translateY(32px); }
@@ -150,4 +150,10 @@ html.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .menu, .card::before, .card::after, .card[data-in] .card__sheet, .more-grid li { transition: none; }
   .card[data-in]:not(.in) .card__sheet, .more-grid li[data-in]:not(.in) { opacity: 1; }
+}
+
+/* very narrow phones: no room for the words, the switch graphic carries it */
+@media (max-width: 359px) {
+  .bar .neon-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .bar .neon-toggle { padding: 0 11px; }
 }

@@ -121,27 +121,7 @@ svg .neon-glow {
   100% { opacity: var(--glow-opacity-on); }
 }
 
-/* ---- page switch (View Transitions; neon.js adds .lights-off / .lights-on) --
-   The new page simply fades in over the old one: opacity only. The UA default
-   cross-fade uses mix-blend-mode: plus-lighter, which would flash bright, so
-   it is reset here. The root never changes size, so the UA group animation
-   (width/height/transform/backdrop-filter) is switched off too. */
-::view-transition-group(root) { animation: none; }
-::view-transition-old(root),
-::view-transition-new(root) {
-  mix-blend-mode: normal;
-}
-::view-transition-old(root) { animation: none; }
-:root.lights-off::view-transition-new(root) {
-  animation: neon-fade-in var(--dur-lights-off) var(--ease-premium) both;
-}
-:root.lights-on::view-transition-new(root) {
-  animation: neon-fade-in var(--dur-lights-on) var(--ease-premium) both;
-}
-@keyframes neon-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+/* ---- page switch: instant (neon.js), no View Transition overlay to block taps ---- */
 
 /* ---- reduced motion: instant switch, glow simply on, nothing moves ---------- */
 @media (prefers-reduced-motion: reduce) {

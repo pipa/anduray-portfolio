@@ -8,9 +8,8 @@
  *   localStorage ("anduray-d-mode") and synced across open tabs.
  * - No saved choice: day. Opt in to following the OS dark setting with
  *   <html data-neon-follow-os>.
- * - Motion: page cross-fade via View Transitions (opacity), then the
- *   .neon-glow layers ignite (opacity). With prefers-reduced-motion, or
- *   without View Transitions support for the cross-fade, the swap is instant.
+ * - Motion: the page swaps instantly, then the .neon-glow layers ignite
+ *   (opacity). With prefers-reduced-motion there is no ignite either.
  *   Durations are read from tokens.css; nothing is hard-coded here.
  * - API: window.DNeon.mode / .set("neon"|"day") / .toggle() / .sync()
  *   Event: document "neon:change" with detail { mode, source }.
@@ -25,7 +24,6 @@
   const osDark = matchMedia('(prefers-color-scheme: dark)');
   const followOS = root.hasAttribute('data-neon-follow-os');
 
-  let transition = null;
   let igniteTimer = 0;
 
   const valid = (m) => MODES.includes(m);
@@ -109,20 +107,9 @@
       document.dispatchEvent(new CustomEvent('neon:change', { detail: { mode, source } }));
     };
 
-    if (motion && typeof document.startViewTransition === 'function') {
-      if (transition) transition.skipTransition();
-      root.classList.remove('lights-off', 'lights-on');
-      root.classList.add(mode === 'neon' ? 'lights-off' : 'lights-on');
-      const vt = document.startViewTransition(swap);
-      transition = vt;
-      vt.finished.finally(() => {
-        if (transition !== vt) return;
-        transition = null;
-        root.classList.remove('lights-off', 'lights-on');
-      });
-    } else {
-      swap();
-    }
+    // Instant swap, then the glow ignites. No full-page cross-fade: its overlay
+    // swallowed taps while it ran (2-4 s in Safari), so a quick second tap did nothing.
+    swap();
   };
 
   const toggle = (source = 'api') =>
