@@ -112,3 +112,16 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
   els.forEach(e => io.observe(e));
 })();
+
+/* header colour: ink strip while it sits over a dark section (hero fade-out, work, contact), paper elsewhere */
+(() => {
+  const bar = document.querySelector('.top'), stage = document.querySelector('.stage');
+  if (!bar || !stage) return;
+  const dark = [...document.querySelectorAll('.work, .contact')];
+  const set = () => {
+    const y = bar.offsetHeight / 2, s = stage.getBoundingClientRect();
+    const fade = s.bottom > y && s.bottom - innerHeight * 0.5 < bar.offsetHeight;
+    bar.classList.toggle('on-ink', fade || dark.some(d => { const r = d.getBoundingClientRect(); return r.top <= y && r.bottom > y; }));
+  };
+  addEventListener('scroll', set, { passive: true }); addEventListener('resize', set); set();
+})();

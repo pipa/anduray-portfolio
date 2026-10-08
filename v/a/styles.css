@@ -6,15 +6,16 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.work :focus-visible, .contact :focus-visible, .menu :focus-visible { outline-color: var(--accent-on-ink); }
+.work :focus-visible, .contact :focus-visible, .menu :focus-visible, .top.on-ink :focus-visible { outline-color: var(--accent-on-ink); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--margin); }
 .label { font-size: var(--size-label); font-weight: 600; letter-spacing: var(--track-label); text-transform: uppercase; }
 .display { font-variation-settings: "wdth" var(--wdth-display); font-weight: 800; text-transform: uppercase; line-height: .86; letter-spacing: -.01em; margin: 0; }
 
-/* header: blend-inverts over paper, ink and pictures so it always reads */
+/* header: a solid strip; paper over the hero, ink once the page is on ink (main.js sets .on-ink) */
 .top { position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--header-h); display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; padding: 0 var(--margin); color: #F3F0E8; mix-blend-mode: difference; font-size: 15px; }
+  gap: 24px; padding: 0 var(--margin); color: var(--ink); background: var(--paper); font-size: 15px; }
+.top.on-ink { color: var(--paper); background: var(--ink); }
 .top a { text-decoration: none; }
 .top .who { font-weight: 700; letter-spacing: -.005em; }
 .nav { display: flex; gap: clamp(16px, 2.4vw, 36px); margin-left: auto; }
@@ -31,7 +32,7 @@ svg.hero { position: absolute; inset: var(--header-h) 0 0 0; width: 100%; height
 .col { animation: var(--dir) var(--dur) linear infinite; }
 @keyframes up { to { transform: translateY(-50%); } }
 @keyframes down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
-.meta { position: absolute; left: var(--margin); right: var(--margin); bottom: clamp(20px, 4vh, 44px); display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.stage .meta { position: absolute; left: var(--margin); right: var(--margin); bottom: clamp(20px, 4vh, 44px); display: flex; justify-content: space-between; align-items: end; gap: 24px; }
 .kicker { color: var(--accent); margin: 0 0 12px; }
 .meta .lede { font-size: var(--size-lede); line-height: 1.4; max-width: 34ch; margin: 0; }
 .hint { color: var(--muted); margin: 0; }
@@ -130,7 +131,7 @@ svg.hero { position: absolute; inset: var(--header-h) 0 0 0; width: 100%; height
 @media (max-width: 767px) {
   .stage { height: var(--stage-h-phone); }
   svg.hero { height: calc(100% - var(--header-h) - 190px); }
-  .meta { flex-direction: column; align-items: start; gap: 14px; }
+  .stage .meta { flex-direction: column; align-items: start; gap: 14px; }
   .case { display: block; }
   .side { position: static; margin-bottom: 32px; }
   .win { max-width: 64vw; }
