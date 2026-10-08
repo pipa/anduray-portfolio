@@ -560,3 +560,4 @@ html { overflow-x: clip; }
   .hero-slug .slug-x { display: none; }
   .hero .reg-t { display: none; }
 }
+@media (max-width:599px){ .sec-head{ grid-template-columns:minmax(0,1fr); row-gap:10px; } .sec-head .sec-meta{ justify-self:start; } }
