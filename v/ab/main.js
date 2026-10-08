@@ -58,7 +58,7 @@
   fontsReady.then(() => { build(); intro(); onScroll(); });
   addEventListener('resize', () => { const before = mode; build(); if (mode !== before) { showOutline(1); onScroll(); } });
 
-  // scroll: dive through the left stroke of the O, then hand over to the work, on ink
+  // scroll: dive through the left stroke of the O, then the hero scrolls up into the paper sheets
   const zmax = tok('--zoom-max', 70);
   const wins = [...document.querySelectorAll('.win')].map(s => ({ s, img: s.querySelector('.win-img') }));
   let ticking = false;
@@ -113,15 +113,14 @@
   els.forEach(e => io.observe(e));
 })();
 
-/* header colour: ink strip only over the hero fade-out and Contact; it stays paper over the proof sheets */
+/* header colour: ink strip only over Contact; paper everywhere else */
 (() => {
-  const bar = document.querySelector('.top'), stage = document.querySelector('.stage');
-  if (!bar || !stage) return;
+  const bar = document.querySelector('.top');
+  if (!bar) return;
   const dark = [...document.querySelectorAll('.contact')];
   const set = () => {
-    const y = bar.offsetHeight / 2, s = stage.getBoundingClientRect();
-    const fade = s.bottom > y && s.bottom - innerHeight * 0.5 < bar.offsetHeight;
-    bar.classList.toggle('on-ink', fade || dark.some(d => { const r = d.getBoundingClientRect(); return r.top <= y && r.bottom > y; }));
+    const y = bar.offsetHeight / 2;
+    bar.classList.toggle('on-ink', dark.some(d => { const r = d.getBoundingClientRect(); return r.top <= y && r.bottom > y; }));
   };
   addEventListener('scroll', set, { passive: true }); addEventListener('resize', set); set();
 })();
