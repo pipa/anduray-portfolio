@@ -9,7 +9,7 @@ into `v/d/index.html`. Demo: `neon-demo.html`
 |---|---|
 | `tokens.css` | D's **single** colour + motion tokens file. Extend it (sections marked `PIXEL:`), don't replace it. Tokens marked `[neon]` are read by the module. |
 | `neon.css` | Toggle button, `.neon-glow` hook, view-transition cross-fade, ignite animation, reduced-motion rules. |
-| `neon.js` | Behaviour, ~2 KB, no dependencies. `defer`. |
+| `neon.js` | Behaviour, 6 KB (2.5 KB gzipped), no dependencies. `defer`. |
 | `neon-demo.html` | Placeholder papercut scene (sun + 4 layers) in both modes. Demo-only CSS lives inline in it. |
 
 ## Integrate in 4 steps
