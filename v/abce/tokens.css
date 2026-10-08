@@ -1,0 +1,101 @@
+/* ABCE mix: design + motion tokens, the only place for colour, type, layout and motion values. */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+:root {
+  /* colour: one palette. On --paper: ink 16.2:1, muted 6.3:1, accent 5.4:1. On --ink: paper 16.2:1, muted-on-ink 6.9:1, accent-on-ink 4.9:1 */
+  --paper: #F3F0E8;
+  --ink: #151412;
+  --muted: #5C574E;
+  --muted-on-ink: #A39E93;
+  --rule: #D8D2C4;
+  --rule-strong: #B9B2A3;
+  --rule-on-ink: #34312C;
+  --accent: #B23516;
+  --accent-on-ink: #E2542E;
+  --tile: #E6E1D6;              /* image placeholder while loading */
+  /* B's colour bar, kept to this palette: ink 100/70/40/15%, accent, accent 50% (decoration only, never text) */
+  --chip-1: #151412;
+  --chip-2: color-mix(in oklab, #151412 70%, #F3F0E8);
+  --chip-3: color-mix(in oklab, #151412 40%, #F3F0E8);
+  --chip-4: color-mix(in oklab, #151412 15%, #F3F0E8);
+  --chip-5: #B23516;
+  --chip-6: color-mix(in oklab, #B23516 50%, #F3F0E8);
+
+  /* type: Archivo only. headings 800 / wdth 68, body 400, quotes 500 upright */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --wdth-display: 68;
+  --wght-display: 800;
+  --wght-quote: 500;
+  --size-h2: clamp(48px, 7vw, 128px);
+  --size-h2-info: clamp(40px, 4.6vw, 88px);
+  --size-title: clamp(20px, 1.7vw, 30px);     /* sheet title when C's line is the headline */
+  --size-line: clamp(28px, 3.3vw, 60px);      /* C's line: the sheet headline */
+  --size-h3: clamp(34px, 3.8vw, 68px);        /* sheet title when a case has no line */
+  --size-intro: clamp(28px, 3.5vw, 64px);     /* E's intro, large and quiet */
+  --size-index: clamp(22px, 2.4vw, 44px);
+  --size-st: clamp(22px, 1.9vw, 32px);
+  --size-lede: clamp(18px, 1.5vw, 23px);
+  --size-body: 17px;
+  --size-small: 15px;
+  --size-label: 12px;
+  --size-slug: 11px;
+  --size-contact: clamp(36px, 5.6vw, 104px);
+  --size-mail: clamp(36px, 7.4vw, 144px);
+  --track-label: 0.08em;
+  --track-slug: 0.1em;
+  --wdth-slug: 86;
+
+  /* layout */
+  --max: 1680px;
+  --margin: clamp(20px, 4vw, 72px);
+  --gutter: clamp(16px, 2vw, 32px);
+  --grid-gap: 24px;             /* More work grid */
+  --header-h: 60px;
+  --section-gap: clamp(112px, 14vw, 240px);
+  --case-gap: clamp(96px, 11vw, 200px);
+  --sheet-pad: clamp(16px, 2.6vw, 48px);
+
+  /* printer's marks (B) */
+  --mark-w: 1px;
+  --crop-len: 24px;
+  --crop-gap: 8px;
+  --chip-w: 22px;
+  --chip-h: 10px;
+
+  /* hero (A, unchanged) */
+  --stage-h: 280vh;          /* A used 320vh; shorter here so the plain-paper stretch after the fade stays short */
+  --stage-h-phone: 240vh;
+  --name-stroke: 3px;
+  --intro-from: 9;
+  --zoom-max: 70;
+  --fade-from: 0.45;         /* dive progress where the paper fade starts (A: 0.6 to ink) */
+  --fade-to: 0.58;           /* fully paper before the zoomed thumbnails go soft */
+
+  /* index preview (E) */
+  --prev-w: 280px;
+  --prev-lag: 0.16;             /* follow factor per frame (read by main.js) */
+
+  /* motion: easing */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+
+  /* motion: durations (unitless values are read by main.js) */
+  --dur-quick: 320ms;
+  --dur-hover: 220ms;
+  --dur-intro: 1400;
+  --dur-col-min: 48;            /* seconds per loop of a hero poster column */
+  --nudge-index: 12px;          /* index title shift on hover */
+  --scale-hover: 1.03;
+
+  /* C's reveal: the mask opens over this stretch of viewport travel (read by main.js) */
+  --board-start: 0.9;          /* lead's top edge at 90% of the viewport: mask starts to open */
+  --board-end: 0.2;            /* top edge at 20%: the picture is finished */
+}
+@media (max-width: 767px) {
+  :root { --grid-gap: 16px; --crop-len: 12px; --crop-gap: 4px; --chip-w: 14px; --chip-h: 8px; --size-body: 16px; }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  :root { --crop-len: 18px; --crop-gap: 6px; }
+}
