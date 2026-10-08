@@ -1,0 +1,54 @@
+/* Version C "Idea, line, picture": design + motion tokens. Change values here, never inline. */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+:root {
+  /* colour: a sketchbook. ink on paper 17:1, graphite 9.2:1, muted 6.6:1, red pencil 5.6:1 */
+  --paper: #F3F0E8;
+  --sheet: #FBF9F4;
+  --ink: #151412;
+  --graphite: #3B3730;
+  --muted: #5C574E;
+  --rule: #D8D2C4;
+  --grid: rgba(21, 20, 18, 0.045);
+  --accent: #B23516;
+  --accent-on-ink: #E2542E;
+  --muted-on-ink: #A39E93;
+
+  /* type */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --size-name: clamp(64px, 9.6vw, 184px);
+  --size-h2: clamp(44px, 6.4vw, 120px);
+  --size-h3: clamp(32px, 3.4vw, 60px);
+  --size-line: clamp(30px, 3.6vw, 66px);
+  --size-big: clamp(22px, 2.2vw, 36px);
+  --size-lede: clamp(18px, 1.45vw, 22px);
+  --size-body: 17px;
+  --size-label: 12px;
+
+  /* layout */
+  --max: 1600px;
+  --margin: clamp(20px, 4vw, 72px);
+  --gutter: clamp(16px, 2vw, 32px);
+  --header-h: 60px;
+  --grid-size: 24px;          /* sketchbook grid */
+  --section-gap: clamp(112px, 13vw, 220px);
+  --case-gap: clamp(112px, 14vw, 240px);
+
+  /* motion */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-quick: 320ms;
+  --dur-hover: 220ms;
+  --dur-reveal: 1000ms;
+  --dur-draw: 1400ms;         /* pencil underline under section titles */
+  --rise: 40px;
+  /* hero cycle, ms (read by main.js) */
+  --t-sketch: 1800;
+  --t-line: 1500;
+  --t-pic: 1000;
+  --t-hold: 2600;
+  --t-out: 400;
+  /* case boards: reveal window as a fraction of viewport travel (read by main.js) */
+  --board-start: 0.85;
+  --board-end: 0.3;
+}
