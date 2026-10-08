@@ -84,6 +84,7 @@ a:hover { text-underline-offset: 0.34em; }
   .nav-mail { display: block; margin: 8px 0 0; font-size: var(--size-small); }
   .nav ul, .nav-mail { opacity: 0; }
   .top.menu-open .nav ul, .top.menu-open .nav-mail { opacity: 1; transition: opacity var(--dur-menu-in) var(--ease-premium) calc(var(--dur-menu-in) * 0.5); }
+  .top.menu-closing .nav ul, .top.menu-closing .nav-mail { opacity: 0; transition: opacity calc(var(--dur-menu-out) * 0.5) linear; }
 }
 
 /* ---------- printer's marks ---------- */
@@ -206,7 +207,8 @@ a.sec-meta { color: var(--accent); }
 .ticket dd { margin: 0; }
 .more { display: inline-block; font-size: 15px; font-weight: 600; color: var(--accent); }
 .proof figure { position: relative; margin: 0; }
-.proof .media { display: grid; gap: var(--gutter); }
+.proof .pic { position: relative; display: block; }
+.proof .media { position: relative; display: grid; gap: var(--gutter); }
 .proof .media img { width: 100%; }
 .proof figcaption { margin-top: 10px; }
 .proof .marks { inset: 0; color: var(--rule-strong); --crop-len: 12px; --crop-gap: 5px; }
@@ -256,9 +258,10 @@ a.sec-meta { color: var(--accent); }
 .m-mixed figure:nth-child(3) { grid-column: 10 / span 3; }
 
 /* 07: H2Ocean box, the dieline on proof stock */
-.m-proof { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
+.m-proof { --die-pad: clamp(14px, 2.4vw, 40px); grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; }
 .m-proof .dieline { grid-column: 1 / span 7; grid-row: span 2; }
-.m-proof .dieline img { background: var(--sheet); padding: clamp(14px, 2.4vw, 40px); outline: 1px solid var(--rule); outline-offset: -1px; }
+.m-proof .dieline img { background: var(--sheet); padding: var(--die-pad); outline: 1px solid var(--rule); outline-offset: -1px; }
+.m-proof .dieline .sep { inset: var(--die-pad); }
 .m-proof figure:nth-child(2) { grid-column: 8 / span 3; }
 .m-proof figure:nth-child(3) { grid-column: 11 / span 2; }
 
@@ -297,8 +300,8 @@ a.sec-meta { color: var(--accent); }
 }
 
 /* proofs pull into register: three process plates rebuilt from the image itself */
-.sep { position: absolute; left: 0; top: 0; width: 100%; isolation: isolate; pointer-events: none; }
-.sep img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; will-change: transform, opacity; }
+.sep { position: absolute; inset: 0; isolation: isolate; pointer-events: none; }
+.sep img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding: 0; background: none; outline: 0; opacity: 0; will-change: transform, opacity; }
 .sep .s-y { filter: url(#sep-y); translate: var(--sep-y); }
 .sep .s-m { filter: url(#sep-m); translate: var(--sep-m); mix-blend-mode: multiply; }
 .sep .s-c { filter: url(#sep-c); translate: var(--sep-c); mix-blend-mode: multiply; }
