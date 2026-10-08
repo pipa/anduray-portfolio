@@ -47,22 +47,24 @@ page renders day (day values sit on `:root`) and the button is hidden (it can't 
   `DNeon.sync()` once after inserting one so its `aria-pressed` is right.
 
 **3. Glow filter** — define once per page, top of `<body>` (neon.js injects the same filter
-if `#neon-glow` is missing, but inline avoids a frame without glow):
+if `#neon-glow` is missing, but inline avoids a frame without glow). Muse's spec: 2 px tube
+(`--glow-stroke`), 8 px glow (blur sigma 4). `data-px` lets hero.js rescale the blur so it stays
+8 px on screen however the SVG is scaled; without hero.js the values are artboard units.
 
 ```html
 <svg class="neon-defs" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
   <filter id="neon-glow" x="-20%" y="-60%" width="140%" height="220%" color-interpolation-filters="sRGB">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="near"/>
-    <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="far"/>
-    <feMerge><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="near" data-px="stdDeviation:1"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="far" data-px="stdDeviation:4"/>
+    <feMerge><feMergeNode in="far"/><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
 </svg>
 ```
 
 **4. Paper layers + glow copies** — each paper layer gets a pre-rendered glow copy with
 `class="neon-glow"`. In SVG it is the layer's top edge (open path, no fill) stroked in
-`--glow-color` through the static filter. It sits at opacity 0 in day and 1 in neon; only
-its **opacity** ever animates.
+`--glow-color` through the static filter. It sits at opacity 0 (and `visibility: hidden`, so it isn't painted) in day and 1 in neon;
+only its **opacity** ever animates.
 
 ```html
 <g class="paper-layer">
@@ -71,10 +73,12 @@ its **opacity** ever animates.
 </g>
 ```
 
-- `--glow-color`: tube colour (`--neon-1` cyan, `--neon-2` pink, `--neon-3` yellow, `--neon-4` green). Default `--neon-1`.
+- `--glow-color`: tube colour (`--neon-1` cyan, `--neon-2` pink, `--neon-3` yellow, `--neon-4` green, `--neon-5` orange). Default `--neon-1`.
 - `--i`: ignite order (0 = back). Each layer starts `--stagger-ignite` after the previous.
 - Use the open edge path for the glow, not the closed fill shape, or the sides and bottom
   of the layer glow too. A closed shape (sun/moon circle) can use the same element.
+  (The hero instead overscans each closed path past the artboard so one `<use>` of the fill
+  path works as the tube: only the top edge is ever on screen. See HERO.md.)
 - `.neon-glow` also works on a whole `<svg>`/`<img>`/`<div>` (e.g. a pre-rendered glow PNG
   per parallax layer): then only the opacity rules apply. That's the cheapest option if
   the filtered SVG costs too much while the scene is scrolling.
@@ -132,6 +136,7 @@ Every text colour passes 4.5:1 on its own surface, so any can be body text.
 | Neon | tube `--neon-2` #FF5FA8 | `--paper-2` #1C1833 | graphic edge | **6.07:1** | 3 |
 | Neon | tube `--neon-3` #FFE45C | `--paper-3` #211C3C | graphic edge | **12.73:1** | 3 |
 | Neon | tube `--neon-4` #8CFF6B | `--paper-4` #0A0910 | graphic edge | **15.70:1** | 3 |
+| Neon | tube `--neon-5` #FF8A3D | `--sheet-5` #07060B | graphic edge (hero) | **8.61:1** | 3 |
 
 Text over the scene isn't covered: if Pixel sets copy on top of a paper layer, check it
 against that layer's fill in both modes (e.g. #151412 on `--paper-3` #F08A5D is 7.45:1, but

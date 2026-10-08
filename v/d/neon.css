@@ -94,6 +94,7 @@ html:not([data-mode]) .neon-toggle { display: none; }
    ---------------------------------------------------------------------------- */
 .neon-glow {
   opacity: 0;
+  visibility: hidden;        /* day: skip painting the filtered copies entirely */
   pointer-events: none;
 }
 svg .neon-glow {
@@ -105,7 +106,7 @@ svg .neon-glow {
   vector-effect: non-scaling-stroke;
   filter: url(#neon-glow);   /* defined once: <filter id="neon-glow"> (see NEON.md) */
 }
-:root[data-mode="neon"] .neon-glow { opacity: var(--glow-opacity-on); }
+:root[data-mode="neon"] .neon-glow { opacity: var(--glow-opacity-on); visibility: visible; }
 
 /* Ignite: plays only right after the user switches to neon (never on load).
    One dim-and-catch, not a strobe: well under 3 flashes per second. */

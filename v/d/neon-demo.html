@@ -55,9 +55,9 @@
 <!-- 3. Glow filter + paper shadow, defined once per page (neon.js injects #neon-glow if missing). -->
 <svg class="neon-defs" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
   <filter id="neon-glow" x="-20%" y="-60%" width="140%" height="220%" color-interpolation-filters="sRGB">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="near"/>
-    <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="far"/>
-    <feMerge><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="near" data-px="stdDeviation:1"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="far" data-px="stdDeviation:4"/>
+    <feMerge><feMergeNode in="far"/><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
   <filter id="paper-shadow" x="-5%" y="-30%" width="110%" height="160%">
     <feDropShadow dx="0" dy="-6" stdDeviation="6" style="flood-color: var(--paper-shadow)"/>

@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Version D "Wild": papercut hero (day) that switches to neon via neon.js.
+   Needs tokens.css + neon.css first. Every number that matters is a token.
+   Rules: all copy sits on solid panels, never over the art. The scene only
+   ever moves by transform (hero.js); filters are static.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../../assets/fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- hero frame ------------------------------------------------------------ */
+.d-hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: var(--hero-min-h);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--surface);
+}
+
+/* ---- scene: 5 stacked sheets, each its own composited layer --------------- */
+.d-hero__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.d-sheet {
+  position: absolute;
+  left: calc(var(--hero-overscan) * -1);
+  right: calc(var(--hero-overscan) * -1);
+  /* static stack offset: each sheet sits --sheet-step higher than the one in front */
+  top: calc(var(--hero-overscan) * -1 - var(--depth) * var(--sheet-step));
+  height: calc(100% + var(--hero-overscan) * 2);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+.d-sheet svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.d-sheet__paper {
+  stroke: var(--edge);            /* 1 px cut edge */
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  filter: url(#d-sheet-shadow);   /* 12 px ink shadow at 18%, static */
+}
+.d-sheet path { vector-effect: non-scaling-stroke; }  /* also reaches the <use> glow copies */
+
+/* ---- toggle on its own solid panel, top right ----------------------------- */
+.d-hero__tools {
+  position: absolute;
+  z-index: 2;
+  top: var(--hero-margin);
+  right: var(--hero-margin);
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--panel-bg);
+  box-shadow: 0 0 0 1px var(--panel-edge);
+}
+
+/* ---- name panel: flat, solid, in front, never moves ------------------------ */
+.d-hero__panel {
+  position: absolute;
+  z-index: 2;
+  left: var(--hero-margin);
+  bottom: var(--hero-margin);
+  width: min(var(--panel-w), calc(100% - var(--hero-margin) * 2));
+  padding: var(--panel-pad);
+  background: var(--panel-bg);
+  box-shadow: 0 0 0 1px var(--panel-edge);   /* hairline in neon only; transparent in day */
+}
+.d-hero__kicker {
+  margin: 0 0 18px;
+  font-size: var(--size-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.d-hero__name {
+  margin: 0;
+  font-size: var(--size-hero-name);
+  font-weight: 800;
+  font-stretch: var(--display-wdth);
+  line-height: var(--lh-display);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--text);
+}
+.d-hero__name span { display: block; }
+.d-hero__role {
+  margin: 20px 0 0;
+  max-width: 40ch;
+  font-size: var(--size-role);
+  line-height: var(--lh-role);
+  color: var(--text);
+}
+.d-hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+  margin: 14px 0 -10px;
+}
+.d-hero__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--size-label);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+.d-hero a:focus-visible,
+.d-next a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ---- placeholder below the hero (Pixel replaces) --------------------------- */
+.d-next {
+  min-height: 100vh;
+  padding: var(--hero-margin);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* ---- phones: art fills the top, panel sits over the foot of the scene ----- */
+@media (max-width: 767px) {
+  .d-hero__scene { bottom: auto; height: var(--hero-scene-phone); }
+  /* full-bleed solid sheet at the foot: covers the scene's bottom edge */
+  .d-hero__panel { left: 0; right: 0; bottom: 0; width: auto; padding: var(--panel-pad) var(--hero-margin) calc(var(--panel-pad) + env(safe-area-inset-bottom, 0px)); }
+  .d-hero__kicker { margin-bottom: 14px; }
+  .d-hero__role { margin-top: 16px; }
+}
+
+/* ---- reduced motion: static scene (hero.js also never attaches) ----------- */
+@media (prefers-reduced-motion: reduce) {
+  .d-sheet { transform: none !important; will-change: auto; }
+}

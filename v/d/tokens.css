@@ -41,6 +41,23 @@
   --neon-2: #FF5FA8;        /* pink   */
   --neon-3: #FFE45C;        /* yellow */
   --neon-4: #8CFF6B;        /* green  */
+  --neon-5: #FF8A3D;        /* orange (La Montanita fire) */
+
+  /* ---- [hero] papercut sheets, back (1) -> front (5) -------------------- */
+  /* Muse: fills step from paper to ink. Interpolated in OKLab at 0/25/50/75/100%,
+     i.e. literally 0/25/50/75/100% ink tints: the scene reads back-to-front
+     like a print proof, light sky to ink foreground. */
+  --sheet-1: #F3F0E8;       /* 0%   registration-mark sun (same as paper: edge + shadow carry it) */
+  --sheet-2: #B5B2AC;       /* 25%  Merendon ridge (San Pedro Sula) */
+  --sheet-3: #7A7873;       /* 50%  the wave */
+  --sheet-4: #44433F;       /* 75%  Florida coast + palms */
+  --sheet-5: #151412;       /* 100% ink swell, foreground */
+  --sheet-edge-dark: rgba(21, 20, 18, 0.28);    /* 1 px cut edge on light sheets (1-2) */
+  --sheet-edge-light: rgba(243, 240, 232, 0.42); /* 1 px cut edge on dark sheets (3-5) */
+  --sheet-shadow-color: #151412;  /* 12 px ink shadow ... */
+  --sheet-shadow-opacity: 0.18;   /* ... at 18% (filter #d-sheet-shadow, static) */
+  --panel-bg: var(--surface);     /* name panel: solid, flat, no shadow */
+  --panel-edge: transparent;
 
   /* ---- toggle ---------------------------------------------------------- */
   --toggle-fg: var(--text);       /* [neon] */
@@ -69,6 +86,19 @@
   --paper-sun: #1C1833;
   --paper-shadow: rgba(0, 0, 0, 0.6);
 
+  /* [hero] neon sheets: same paths, dark fills, violet night back -> black front */
+  --sheet-1: #2E2750;
+  --sheet-2: #231E3D;
+  --sheet-3: #19162B;
+  --sheet-4: #100D1B;
+  --sheet-5: #07060B;
+  --sheet-edge-dark: transparent;   /* the neon tube replaces the cut edge */
+  --sheet-edge-light: transparent;
+  --sheet-shadow-color: #000000;
+  --sheet-shadow-opacity: 0.5;
+  --panel-bg: var(--surface);
+  --panel-edge: var(--rule);
+
   --toggle-fg: var(--text);
   --toggle-border: var(--focus);
   --toggle-track: var(--text-muted);
@@ -80,7 +110,7 @@
 :root {
   /* ---- glow (pre-rendered; only its opacity ever animates) ------------- */
   --glow-color: var(--neon-1);    /* [neon] default; override per layer */
-  --glow-stroke: 3px;             /* [neon] neon tube width (edge + glow source) */
+  --glow-stroke: 2px;             /* [neon] neon tube width (Muse: 2 px); glow = 8 px blur in #neon-glow */
   --glow-opacity-on: 1;           /* [neon] glow layer opacity in neon mode */
 
   /* ---- motion: easing (same curves as the root site + playbook) -------- */
@@ -97,6 +127,32 @@
   --dur-ignite: 480ms;            /* [neon] each glow layer "ignites" (opacity, one dip) */
   --delay-ignite: 180ms;          /* [neon] first glow starts at 50% of the cross-fade */
   --stagger-ignite: 70ms;         /* [neon] per glow layer, back -> front (set --i) */
+
+  /* ---- [hero] layout + motion ------------------------------------------ */
+  --sheet-step: 6px;              /* each sheet sits 6 px higher than the one in front */
+  --parallax-1: 0px;              /* back  (max translate, px) */
+  --parallax-2: 4px;
+  --parallax-3: 8px;
+  --parallax-4: 12px;
+  --parallax-5: 16px;             /* front */
+  --parallax-lerp: 0.12;          /* pointer follow per frame (0-1); 0.12 = ~400 ms settle at 60 fps */
+  --hero-overscan: 48px;          /* sheets bleed past the hero so offsets/parallax never show an edge */
+  --hero-min-h: 560px;
+  --hero-scene-phone: 66%;        /* < 768 px: art fills the top, name panel sits below/over its foot */
+  --panel-pad: clamp(20px, 3vw, 44px);
+  --panel-w: clamp(30rem, 44vw, 46rem); /* name panel width >= 768 px */
+  --hero-margin: clamp(16px, 4vw, 64px);
+
+  /* ---- [hero] type ------------------------------------------------------- */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display-wdth: 68%;
+  --size-hero-name: clamp(48px, 7.2vw, 136px);
+  --lh-display: 0.88;
+  --track-display: -0.01em;
+  --size-role: clamp(16px, 1.35vw, 21px);
+  --lh-role: 1.5;
+  --size-label: 12px;
+  --track-label: 0.08em;
 
   /* ---- PIXEL: type tokens go here --------------------------------------- */
 

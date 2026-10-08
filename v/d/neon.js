@@ -60,9 +60,9 @@
     wrap.innerHTML =
       `<svg xmlns="${ns}" class="neon-defs" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">` +
       '<filter id="neon-glow" x="-20%" y="-60%" width="140%" height="220%" color-interpolation-filters="sRGB">' +
-      '<feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="near"/>' +
-      '<feGaussianBlur in="SourceGraphic" stdDeviation="9" result="far"/>' +
-      '<feMerge><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>' +
+      '<feGaussianBlur in="SourceGraphic" stdDeviation="1" result="near" data-px="stdDeviation:1"/>' +
+      '<feGaussianBlur in="SourceGraphic" stdDeviation="4" result="far" data-px="stdDeviation:4"/>' +
+      '<feMerge><feMergeNode in="far"/><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>' +
       '</filter></svg>';
     document.body.prepend(wrap.firstChild);
   };
