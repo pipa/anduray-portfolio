@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Version D "Wild": THE single tokens file (colour + motion).
+   --------------------------------------------------------------------------
+   Pixel: extend this file, don't replace it. Add type, layout and scene
+   tokens in the marked sections at the bottom. Every token that neon.css /
+   neon.js read is marked [neon]; rename one and the toggle breaks.
+
+   Two palettes, switched by one attribute on <html>:
+     <html data-mode="day">   papercut diorama in daylight (default)
+     <html data-mode="neon">  "lights off": dark paper, neon edges + glow
+   No data-mode at all (JS off) = day, because the day values sit on :root.
+
+   Contrast (WCAG 2.2, computed): see NEON.md. Every text pair below is
+   >= 4.5:1 on its own --surface in its own mode, so body copy can use any
+   of --text / --text-muted / --accent in either mode.
+   ========================================================================== */
+
+:root,
+:root[data-mode="day"] {
+  color-scheme: light;
+
+  /* ---- colour: page ---------------------------------------------------- */
+  --surface: #F3F0E8;       /* [neon] page background (paper) */
+  --text: #151412;          /* [neon] body + headings     16.17:1 on surface */
+  --text-muted: #5C574E;    /* secondary text               6.30:1 */
+  --accent: #B23516;        /* labels, links (vermilion)    5.40:1 */
+  --focus: #B23516;         /* [neon] focus ring            5.40:1 (UI >= 3:1) */
+  --rule: #D8D2C4;          /* 1 px decorative lines (no contrast requirement) */
+
+  /* ---- colour: papercut layers (back -> front) ------------------------- */
+  /* Day fills echo Roberto's own work: sand, Estilo mint, La Montanita fire, deep ink-green. */
+  --paper-1: #E8D9B5;       /* back */
+  --paper-2: #9FD3C1;
+  --paper-3: #F08A5D;
+  --paper-4: #1F3B36;       /* front */
+  --paper-sun: #F2B33D;     /* demo sun / neon moon disc */
+  --paper-shadow: rgba(21, 20, 18, 0.28); /* static drop shadow between layers */
+
+  /* ---- colour: neon tubes (used for edges + glow; graphics, not text) -- */
+  --neon-1: #5CF2E6;        /* cyan   */
+  --neon-2: #FF5FA8;        /* pink   */
+  --neon-3: #FFE45C;        /* yellow */
+  --neon-4: #8CFF6B;        /* green  */
+
+  /* ---- toggle ---------------------------------------------------------- */
+  --toggle-fg: var(--text);       /* [neon] */
+  --toggle-bg: transparent;       /* [neon] */
+  --toggle-border: var(--text);   /* [neon] 16.17:1 (UI >= 3:1) */
+  --toggle-track: var(--text);    /* [neon] switch track when off */
+  --toggle-knob: var(--surface);  /* [neon] */
+  --toggle-track-on: var(--neon-1); /* [neon] track when lights are off */
+  --toggle-knob-on: var(--surface); /* [neon] */
+}
+
+:root[data-mode="neon"] {
+  color-scheme: dark;
+
+  --surface: #0E0C14;       /* night paper */
+  --text: #F3F0E8;          /* 17.05:1 on surface */
+  --text-muted: #A9A3B8;    /*  7.97:1 */
+  --accent: #FF5FA8;        /*  6.89:1 (neon pink) */
+  --focus: #5CF2E6;         /* 14.15:1 (neon cyan) */
+  --rule: #2A2635;
+
+  --paper-1: #17142A;
+  --paper-2: #1C1833;
+  --paper-3: #211C3C;
+  --paper-4: #0A0910;
+  --paper-sun: #1C1833;
+  --paper-shadow: rgba(0, 0, 0, 0.6);
+
+  --toggle-fg: var(--text);
+  --toggle-border: var(--focus);
+  --toggle-track: var(--text-muted);
+  --toggle-knob: var(--surface);
+  --toggle-track-on: var(--neon-1);
+  --toggle-knob-on: var(--surface);
+}
+
+:root {
+  /* ---- glow (pre-rendered; only its opacity ever animates) ------------- */
+  --glow-color: var(--neon-1);    /* [neon] default; override per layer */
+  --glow-stroke: 3px;             /* [neon] neon tube width (edge + glow source) */
+  --glow-opacity-on: 1;           /* [neon] glow layer opacity in neon mode */
+
+  /* ---- motion: easing (same curves as the root site + playbook) -------- */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo   [neon] */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint  [neon] */
+  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);      /* ease-in-expo    [neon] */
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);   /* ease-out-back, position only */
+
+  /* ---- motion: lights switch ------------------------------------------- */
+  --dur-feedback: 150ms;          /* [neon] toggle knob slide (transform) */
+  --dur-lights-off: 360ms;        /* [neon] day -> neon page cross-fade (opacity) */
+  --dur-lights-on: 200ms;         /* [neon] neon -> day: exits ~45% shorter */
+  --dur-ignite: 480ms;            /* [neon] each glow layer "ignites" (opacity, one dip) */
+  --delay-ignite: 180ms;          /* [neon] first glow starts at 50% of the cross-fade */
+  --stagger-ignite: 70ms;         /* [neon] per glow layer, back -> front (set --i) */
+
+  /* ---- PIXEL: type tokens go here --------------------------------------- */
+
+  /* ---- PIXEL: layout tokens go here ------------------------------------- */
+
+  /* ---- PIXEL: scene / parallax motion tokens go here -------------------- */
+}
+
+/* Reduced motion: every switch duration collapses to 0, so the mode swap is
+   instant and the glow is simply on. neon.js also skips the view transition. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-feedback: 0ms;
+    --dur-lights-off: 0ms;
+    --dur-lights-on: 0ms;
+    --dur-ignite: 0ms;
+    --delay-ignite: 0ms;
+    --stagger-ignite: 0ms;
+  }
+}

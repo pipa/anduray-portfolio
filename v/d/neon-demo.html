@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Version D: lights-off toggle demo</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3F0E8">
+<!-- 1. Head snippet: sets data-mode before first paint (no flash of the wrong mode). Keep it inline and first. -->
+<script>!function(d,k){var m;try{m=localStorage.getItem(k)}catch(e){}if(m!=="neon"&&m!=="day")m=d.hasAttribute("data-neon-follow-os")&&matchMedia("(prefers-color-scheme: dark)").matches?"neon":"day";d.dataset.mode=m}(document.documentElement,"anduray-d-mode")</script>
+<link rel="preload" href="../../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- 2. Tokens, then the module. -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="neon.css">
+<script src="neon.js" defer></script>
+<style>
+  /* Demo-only layout. Not part of the module. */
+  @font-face {
+    font-family: "Archivo";
+    src: url("../../assets/fonts/archivo-latin.woff2") format("woff2");
+    font-weight: 100 900; font-stretch: 62% 125%; font-display: swap;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px; line-height: 1.5;
+    background: var(--surface); color: var(--text);
+  }
+  @media (min-width: 768px) { body { font-size: 18px; line-height: 1.55; } }
+  .bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 12px clamp(20px, 4vw, 64px); border-bottom: 1px solid var(--rule);
+  }
+  .label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+  .label b { color: var(--accent); font-weight: 600; }
+  .intro { padding: clamp(32px, 6vw, 88px) clamp(20px, 4vw, 64px) clamp(24px, 4vw, 48px); max-width: 1440px; }
+  h1 {
+    margin: 0 0 0.3em; font-weight: 800; font-stretch: 68%; text-transform: uppercase;
+    font-size: clamp(56px, 11vw, 176px); line-height: 0.88; letter-spacing: -0.01em;
+  }
+  .intro p { margin: 0 0 0.8em; max-width: 62ch; }
+  .intro .muted { color: var(--text-muted); }
+  a { color: var(--accent); text-underline-offset: 0.18em; }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .scene { display: block; width: 100%; height: clamp(300px, 48vw, 640px); }
+  .scene .paper { filter: url(#paper-shadow); }
+  .swatches {
+    display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 24px clamp(20px, 4vw, 64px) 48px;
+    border-top: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+<!-- 3. Glow filter + paper shadow, defined once per page (neon.js injects #neon-glow if missing). -->
+<svg class="neon-defs" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
+  <filter id="neon-glow" x="-20%" y="-60%" width="140%" height="220%" color-interpolation-filters="sRGB">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="near"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="far"/>
+    <feMerge><feMergeNode in="far"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="paper-shadow" x="-5%" y="-30%" width="110%" height="160%">
+    <feDropShadow dx="0" dy="-6" stdDeviation="6" style="flood-color: var(--paper-shadow)"/>
+  </filter>
+</svg>
+
+<header class="bar">
+  <span class="label">Version D <b>/</b> lights-off toggle</span>
+  <!-- 4. The toggle. Label stays "Lights off"; aria-pressed carries the state. -->
+  <button type="button" class="neon-toggle" data-neon-toggle aria-pressed="false">
+    <span class="neon-toggle__switch" aria-hidden="true"></span>
+    <span class="neon-toggle__label">Lights off</span>
+  </button>
+</header>
+
+<main>
+  <section class="intro" aria-labelledby="t">
+    <h1 id="t">Lights off</h1>
+    <p>Placeholder papercut diorama for the Version D neon mode. Press the switch to turn the lights off: the paper goes dark and every layer edge lights up as a neon tube.</p>
+    <p class="muted">Muted text sample. Layers below are placeholders until Pixel and Muse settle the D layout.</p>
+    <p><a href="https://github.com/pipa/anduray-portfolio/blob/versions/d-neon-toggle/v/d/NEON.md">Integration notes (NEON.md)</a></p>
+  </section>
+
+  <svg class="scene" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Placeholder papercut landscape: sun, mountain ridge, two rows of hills and grass, in four paper layers">
+    <g class="paper-layer" data-layer="0">
+      <circle class="paper" cx="1090" cy="150" r="64" style="fill: var(--paper-sun)"/>
+      <circle class="neon-glow" cx="1090" cy="150" r="64" style="--glow-color: var(--neon-3); --i: 0"/>
+    </g>
+    <!-- Back: mountain ridge -->
+    <g class="paper-layer" data-layer="1">
+      <path class="paper" d="M0 330 L120 270 L210 300 L330 200 L450 290 L560 235 L700 310 L820 185 L960 280 L1080 225 L1200 300 L1320 215 L1440 270 V640 H0 Z" style="fill: var(--paper-1)"/>
+      <path class="neon-glow" d="M0 330 L120 270 L210 300 L330 200 L450 290 L560 235 L700 310 L820 185 L960 280 L1080 225 L1200 300 L1320 215 L1440 270" style="--glow-color: var(--neon-1); --i: 1"/>
+    </g>
+    <!-- Hills -->
+    <g class="paper-layer" data-layer="2">
+      <path class="paper" d="M0 400 C160 330 300 350 420 390 S700 450 860 375 S1200 315 1440 385 V640 H0 Z" style="fill: var(--paper-2)"/>
+      <path class="neon-glow" d="M0 400 C160 330 300 350 420 390 S700 450 860 375 S1200 315 1440 385" style="--glow-color: var(--neon-2); --i: 2"/>
+    </g>
+    <!-- Near hills -->
+    <g class="paper-layer" data-layer="3">
+      <path class="paper" d="M0 480 C200 425 360 445 520 490 S860 545 1040 480 S1320 430 1440 460 V640 H0 Z" style="fill: var(--paper-3)"/>
+      <path class="neon-glow" d="M0 480 C200 425 360 445 520 490 S860 545 1040 480 S1320 430 1440 460" style="--glow-color: var(--neon-3); --i: 3"/>
+    </g>
+    <!-- Front: grass -->
+    <g class="paper-layer" data-layer="4">
+      <path class="paper" d="M0 560 L19 476 L38 572 L58 492 L78 569 L93 497 L108 585 L124 527 L139 586 L154 490 L168 584 L185 532 L202 570 L222 508 L243 570 L260 544 L278 585 L298 547 L319 586 L334 479 L350 575 L374 510 L398 586 L412 514 L427 586 L447 536 L467 575 L482 501 L496 572 L514 510 L533 572 L556 543 L578 586 L596 502 L615 573 L630 513 L646 586 L670 531 L694 579 L710 499 L725 570 L748 548 L771 587 L788 518 L805 585 L826 493 L846 578 L867 509 L888 582 L908 520 L927 575 L944 495 L960 575 L975 505 L990 577 L1012 511 L1034 578 L1060 513 L1085 577 L1108 531 L1132 571 L1154 511 L1176 573 L1202 515 L1228 572 L1250 507 L1271 569 L1296 545 L1320 585 L1343 492 L1366 578 L1385 499 L1404 579 L1428 519 L1451 586 V640 H0 Z" style="fill: var(--paper-4)"/>
+      <path class="neon-glow" d="M0 560 L19 476 L38 572 L58 492 L78 569 L93 497 L108 585 L124 527 L139 586 L154 490 L168 584 L185 532 L202 570 L222 508 L243 570 L260 544 L278 585 L298 547 L319 586 L334 479 L350 575 L374 510 L398 586 L412 514 L427 586 L447 536 L467 575 L482 501 L496 572 L514 510 L533 572 L556 543 L578 586 L596 502 L615 573 L630 513 L646 586 L670 531 L694 579 L710 499 L725 570 L748 548 L771 587 L788 518 L805 585 L826 493 L846 578 L867 509 L888 582 L908 520 L927 575 L944 495 L960 575 L975 505 L990 577 L1012 511 L1034 578 L1060 513 L1085 577 L1108 531 L1132 571 L1154 511 L1176 573 L1202 515 L1228 572 L1250 507 L1271 569 L1296 545 L1320 585 L1343 492 L1366 578 L1385 499 L1404 579 L1428 519 L1451 586" style="--glow-color: var(--neon-4); --i: 4"/>
+    </g>
+  </svg>
+
+  <div class="swatches">
+    <span class="label">Mode: <b id="mode-out">day</b></span>
+  </div>
+</main>
+<script>
+  document.addEventListener('neon:change', function (e) { document.getElementById('mode-out').textContent = e.detail.mode; });
+  document.addEventListener('DOMContentLoaded', function () { document.getElementById('mode-out').textContent = document.documentElement.dataset.mode; });
+</script>
+</body>
+</html>

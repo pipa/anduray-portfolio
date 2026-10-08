@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Version D "Wild": "lights off" neon mode. Styles for the toggle button,
+   the .neon-glow hook and the switch animation.
+   Needs tokens.css loaded first. No numbers that matter live here: colours,
+   durations and easings all come from tokens.css.
+   Animated properties: opacity (page cross-fade + glow), transform (knob).
+   Filters and shadows are static; they are never animated.
+   ========================================================================== */
+
+/* ---- page ------------------------------------------------------------------ */
+html {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* ---- the toggle: <button class="neon-toggle" data-neon-toggle aria-pressed> - */
+.neon-toggle {
+  display: inline-flex;
+  flex: none;               /* never squeezed by a flex header (min-width would allow it) */
+  align-items: center;
+  gap: 10px;
+  min-width: 44px;          /* target well above the 24x24 minimum (WCAG 2.5.8) */
+  min-height: 44px;
+  padding: 0 14px 0 12px;
+  border: 1.5px solid var(--toggle-border);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  color: var(--toggle-fg);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Without JS the toggle can't work, so it isn't shown. The head snippet (or
+   neon.js) always sets data-mode, so with JS it is always visible. */
+html:not([data-mode]) .neon-toggle { display: none; }
+
+.neon-toggle:focus { outline: none; }
+.neon-toggle:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+@media (forced-colors: active) {
+  .neon-toggle { border-color: ButtonText; }
+  .neon-toggle:focus-visible { outline-color: Highlight; }
+}
+
+/* The switch graphic. Decorative (aria-hidden); state is aria-pressed. */
+.neon-toggle__switch {
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--toggle-track);
+}
+.neon-toggle__switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--toggle-knob);
+  transform: translateX(0);
+  transition: transform var(--dur-feedback) var(--ease-premium);
+}
+.neon-toggle[aria-pressed="true"] .neon-toggle__switch { background: var(--toggle-track-on); }
+.neon-toggle[aria-pressed="true"] .neon-toggle__switch::after {
+  background: var(--toggle-knob-on);
+  transform: translateX(14px);
+}
+@media (forced-colors: active) {
+  .neon-toggle__switch { border: 1px solid ButtonText; background: Canvas; }
+  .neon-toggle__switch::after { background: ButtonText; top: 2px; left: 2px; }
+  .neon-toggle[aria-pressed="true"] .neon-toggle__switch { background: Highlight; }
+}
+
+/* ---- glow hook ---------------------------------------------------------------
+   Put class="neon-glow" on a pre-rendered glow copy of a paper layer (an SVG
+   <path>/<use>/<g>, or a whole <svg>/<img>). It is invisible in day mode and
+   fully on in neon mode; only its opacity ever changes.
+   Per element: style="--glow-color: var(--neon-2); --i: 2"
+     --glow-color  tube colour (default var(--neon-1))
+     --i           ignite order, 0 = first (back layer)
+   ---------------------------------------------------------------------------- */
+.neon-glow {
+  opacity: 0;
+  pointer-events: none;
+}
+svg .neon-glow {
+  fill: none;
+  stroke: var(--glow-color);
+  stroke-width: var(--glow-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: url(#neon-glow);   /* defined once: <filter id="neon-glow"> (see NEON.md) */
+}
+:root[data-mode="neon"] .neon-glow { opacity: var(--glow-opacity-on); }
+
+/* Ignite: plays only right after the user switches to neon (never on load).
+   One dim-and-catch, not a strobe: well under 3 flashes per second. */
+:root[data-mode="neon"].neon-igniting .neon-glow {
+  animation: neon-ignite var(--dur-ignite) var(--ease-enter) both;
+  animation-delay: calc(var(--delay-ignite) + var(--i, 0) * var(--stagger-ignite));
+}
+@keyframes neon-ignite {
+  0%   { opacity: 0; }
+  45%  { opacity: 0.9; }
+  60%  { opacity: 0.55; }
+  100% { opacity: var(--glow-opacity-on); }
+}
+
+/* ---- page switch (View Transitions; neon.js adds .lights-off / .lights-on) --
+   The new page simply fades in over the old one: opacity only. The UA default
+   cross-fade uses mix-blend-mode: plus-lighter, which would flash bright, so
+   it is reset here. The root never changes size, so the UA group animation
+   (width/height/transform/backdrop-filter) is switched off too. */
+::view-transition-group(root) { animation: none; }
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { animation: none; }
+:root.lights-off::view-transition-new(root) {
+  animation: neon-fade-in var(--dur-lights-off) var(--ease-premium) both;
+}
+:root.lights-on::view-transition-new(root) {
+  animation: neon-fade-in var(--dur-lights-on) var(--ease-premium) both;
+}
+@keyframes neon-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- reduced motion: instant switch, glow simply on, nothing moves ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .neon-toggle__switch::after { transition: none; }
+  :root[data-mode="neon"].neon-igniting .neon-glow { animation: none; }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
