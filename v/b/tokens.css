@@ -1,0 +1,189 @@
+/* Version B, "Press check": design + motion tokens.
+   Every colour, size, duration, easing, offset and physics constant lives here.
+   main.js reads the motion values below with getComputedStyle, so nothing is inlined. */
+:root {
+  /* colour: the page stays neutral so the work carries the colour */
+  --paper: #F3F0E8;
+  --sheet: #FFFFFF;          /* proof stock: the dieline sheet only */
+  --ink: #151412;
+  --muted: #5C574E;          /* 6.3:1 on paper */
+  --muted-on-ink: #A39E93;   /* 6.9:1 on ink */
+  --rule: #D8D2C4;
+  --rule-strong: #B9B2A3;
+  --rule-on-ink: #34312C;
+  --accent: #B23516;         /* 5.4:1 on paper: labels, links, focus, CV */
+  --accent-on-ink: #E2542E;  /* 4.8:1 on ink */
+
+  /* process inks: plates, marks and colour bars only, never text */
+  --cyan: #00AEEF;
+  --magenta: #EC008C;
+  --yellow: #FFE600;
+  --cyan-50: #7FD6F7;
+  --magenta-50: #F57FC5;
+  --yellow-50: #FFF27F;
+  --k-50: #8A8986;
+
+  /* type: one family */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display-wdth: 68;
+  --display-wght: 800;
+  --slug-wdth: 86;
+  --name-fit: 3.72;          /* "ROBERTO" and "ANDURAY" both set 3.64em wide at wdth 68 */
+  --name-max-h: 30svh;
+  --size-name: min(calc((100vw - 2 * var(--margin) - 2 * var(--sheet-pad)) / var(--name-fit)), var(--name-max-h));
+  --size-h2: clamp(40px, 6vw, 96px);
+  --size-h3: clamp(30px, 3.4vw, 54px);
+  --size-no: clamp(56px, 7vw, 120px);
+  --size-clients: clamp(26px, 3.6vw, 56px);
+  --size-mail: clamp(26px, calc((100vw - 2 * var(--margin)) / 11.9), 104px);
+  --size-menu: clamp(44px, 13vw, 76px);
+  --size-lede: clamp(19px, 1.6vw, 24px);
+  --size-body: 18px;
+  --size-small: 15px;
+  --size-label: 12px;
+  --size-slug: 11px;
+  --lh-name: 0.86;
+  --lh-display: 0.88;
+  --lh-body: 1.55;
+  --track-label: 0.08em;
+  --track-slug: 0.1em;
+
+  /* layout */
+  --max: 1440px;
+  --margin: clamp(20px, 4vw, 64px);
+  --gutter: 24px;
+  --header-h: 64px;
+  --section-gap: clamp(96px, 12vw, 200px);
+  --case-gap: clamp(88px, 10vw, 168px);
+  --sheet-pad: clamp(16px, 3vw, 48px);
+  --slug-space: clamp(28px, 4.4vh, 44px);
+
+  /* printer's marks */
+  --mark-w: 1px;
+  --crop-len: 24px;
+  --crop-gap: 8px;
+  --reg-size: 26px;
+  --chip-w: 26px;
+  --chip-h: 13px;
+  --chip-mini: 8px;
+  --halftone-h: 96px;
+  --halftone-w: 16px;
+  /* 45 degree halftone ramp, paper to solid ink (masked, so any ink colour can use it) */
+  --halftone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='96'%3E%3Ccircle cx='0' cy='4' r='1.12'/%3E%3Ccircle cx='16' cy='4' r='1.12'/%3E%3Ccircle cx='8' cy='12' r='2.09'/%3E%3Ccircle cx='0' cy='20' r='2.91'/%3E%3Ccircle cx='16' cy='20' r='2.91'/%3E%3Ccircle cx='8' cy='28' r='3.64'/%3E%3Ccircle cx='0' cy='36' r='4.33'/%3E%3Ccircle cx='16' cy='36' r='4.33'/%3E%3Ccircle cx='8' cy='44' r='4.97'/%3E%3Ccircle cx='0' cy='52' r='5.59'/%3E%3Ccircle cx='16' cy='52' r='5.59'/%3E%3Ccircle cx='8' cy='60' r='6.18'/%3E%3Ccircle cx='0' cy='68' r='6.76'/%3E%3Ccircle cx='16' cy='68' r='6.76'/%3E%3Ccircle cx='8' cy='76' r='7.32'/%3E%3Ccircle cx='0' cy='84' r='7.86'/%3E%3Ccircle cx='16' cy='84' r='7.86'/%3E%3Ccircle cx='8' cy='92' r='8.39'/%3E%3Ccircle cx='0' cy='100' r='9'/%3E%3Ccircle cx='16' cy='100' r='9'/%3E%3C/svg%3E");
+
+  /* registration target as a mask glyph, for list separators */
+  --reg-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -14 28 28' fill='none' stroke='%23000' stroke-width='2.4'%3E%3Ccircle r='7.5'/%3E%3Cpath d='M-13.5 0H13.5M0-13.5V13.5'/%3E%3C/svg%3E");
+
+  /* motion: easing */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint */
+  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);      /* ease-in-expo */
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);   /* ease-out-back */
+  /* damped spring, zeta 0.55 and omega 11 rad/s (same constants as the hero physics), 12.6% overshoot */
+  --ease-spring: linear(0, 0.05 2.8%, 0.173 5.6%, 0.335 8.3%, 0.51 11.1%, 0.676 13.9%, 0.822 16.7%, 0.939 19.4%, 1.025 22.2%, 1.083 25%, 1.115 27.8%, 1.126 30.6%, 1.122 33.3%, 1.108 36.1%, 1.088 38.9%, 1.066 41.7%, 1.045 44.4%, 1.026 47.2%, 1.01 50%, 0.999 52.8%, 0.991 55.6%, 0.986 58.3%, 0.984 61.1%, 0.984 63.9%, 0.986 66.7%, 0.988 69.4%, 0.991 72.2%, 0.994 75%, 0.996 77.8%, 0.998 80.6%, 1 83.3%, 1.001 86.1%, 1.002 88.9%, 1.002 91.7%, 1.002 94.4%, 1.002 97.2%, 1);
+
+  /* motion: durations, delays, staggers */
+  --dur-feedback: 150ms;
+  --dur-hover: 200ms;
+  --font-wait: 600ms;        /* longest wait for Archivo before the press starts */
+  --dur-mark: 900ms;
+  --stagger-mark: 50ms;
+  --dur-chip: 500ms;
+  --delay-chip: 700ms;
+  --stagger-chip: 40ms;
+  --delay-hint: 1500ms;
+  --dur-hint: 600ms;
+  --stagger-plate: 120ms;    /* hero plates release Y, M, C, K */
+  --dur-sep: 1100ms;         /* proof plates pull into register */
+  --stagger-sep: 110ms;
+  --stagger-proof: 70ms;
+  --dur-screen: 1200ms;      /* halftone screen opening on the La Montañita posters */
+  --stagger-screen: 140ms;
+  --ease-screen: cubic-bezier(0.45, 0, 0.2, 1);
+  --dur-menu-in: 340ms;
+  --dur-menu-out: 220ms;
+  --dur-loupe: 160ms;
+  --dur-stamp: 420ms;
+  --delay-stamp: 250ms;
+  --dur-register-fallback: 900ms;
+
+  /* hero plates: where each plate starts, in em of the name (CSS paints this first, JS springs from it) */
+  --plate-y-x: -0.212em; --plate-y-y: 0.194em; --plate-y-r: -2.2deg;
+  --plate-m-x: 0.194em;  --plate-m-y: 0.127em; --plate-m-r: 1.6deg;
+  --plate-c-x: -0.158em; --plate-c-y: -0.139em; --plate-c-r: -1.2deg;
+  --plate-k-x: 0.267em;  --plate-k-y: -0.182em; --plate-k-r: 2.4deg;
+  /* cursor nudge per plate, em per unit of pointer travel (pointer spans -0.5 to 0.5) */
+  --plate-y-push: 0.17 0.127;
+  --plate-m-push: -0.133 -0.1;
+  --plate-c-push: 0.097 0.073;
+  --plate-k-push: 0 0;
+  /* knock: share of pointer speed each plate takes when the cursor sweeps across the name */
+  --plate-y-knock: 0.34;
+  --plate-m-knock: -0.27;
+  --plate-c-knock: 0.2;
+  --plate-k-knock: 0.03;
+  --knock-max: 0.16;         /* largest knock, em of travel */
+  --tap-knock: 0.12;         /* touch: tapping the name, em of travel */
+  --scatter: 3.2;            /* multiples of the start offsets once the hero has scrolled away */
+  --spring-w: 11;
+  --spring-z: 0.55;
+  --px-mm: 0.2646;           /* readout: CSS px to mm */
+
+  /* headings print in register as they scroll in (em) */
+  --ghost-c: -0.07em -0.05em;
+  --ghost-m: 0.08em 0.04em;
+  --ghost-y: -0.04em 0.07em;
+  --ghost-range-start: entry 15%;
+  --ghost-range-end: cover 42%;
+
+  /* proofs: plate offsets before register (px) */
+  --sep-y: -18px 12px;
+  --sep-m: 15px -9px;
+  --sep-c: -9px -15px;
+
+  /* ink band edge: C, M and Y halftones sit off the black, then close up */
+  --edge-c: -5px 3px;
+  --edge-m: 4px -3px;
+  --edge-y: 2px 5px;
+
+  /* halftone screens (px) */
+  --screen-pitch: 9;
+  --menu-pitch: 14;
+
+  /* loupe */
+  --loupe-size: 184px;
+  --loupe-zoom: 2.6;
+  --loupe-zoom-min: 1.7;
+
+  /* hover */
+  --scale-hover: 1.02;
+  --stamp-from: 1.6;
+  --stamp-tilt: -7deg;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --name-fit: 3.7;
+    --crop-len: 18px;
+    --crop-gap: 6px;
+    --reg-size: 22px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --gutter: 16px;
+    --size-body: 16px;
+    --size-small: 14px;
+    --header-h: 56px;
+    --crop-len: 12px;
+    --crop-gap: 4px;
+    --reg-size: 18px;
+    --chip-w: 18px;
+    --chip-h: 10px;
+    --halftone-h: 72px;
+    --sep-y: -10px 8px;
+    --sep-m: 9px -6px;
+    --sep-c: -6px -9px;
+  }
+}
