@@ -8,12 +8,16 @@
   --rule: #D8D2C4;
   --rule-on-ink: #34312C;
   --accent: #B23516;
+  --accent-on-ink: #E2542E;
 
   /* type */
   --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --display-wdth: 68;
   --display-wght: 800;
-  --size-name: clamp(52px, 11.6vw, 168px);
+  --size-name: 20.5vw;
+  --lh-name: 0.8;
+  --size-num: clamp(64px, 8.4vw, 150px);
+  --size-clients-run: clamp(56px, 8vw, 150px);
   --size-h2: clamp(40px, 6vw, 96px);
   --size-h3: clamp(30px, 3.4vw, 54px);
   --size-clients: clamp(24px, 2.6vw, 40px);
@@ -36,6 +40,7 @@
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint */
   --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
   --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);      /* ease-in-expo */
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);   /* ease-out-back, position only */
 
   /* motion: durations */
   --dur-feedback: 150ms;
@@ -43,16 +48,59 @@
   --dur-hero-word: 700ms;
   --dur-hero-img: 900ms;
   --dur-reveal: 800ms;
+  --dur-hero-line: 900ms;
 
   /* motion: stagger + distance */
   --stagger-word: 90ms;
   --stagger-hero-img: 120ms;
   --stagger-reveal: 60ms;
   --delay-hero-img: 300ms;
+  --stagger-line: 90ms;
+  --delay-intro: 650ms;
   --rise-word: 0.35em;
   --rise-img: 32px;
   --scale-reveal: 1.03;
   --scale-hover: 1.02;
+  --scale-drop: 0.92;
+  --shift-line: 8vw;
+
+  /* scroll-linked distances */
+  --drift-line: 12vw;
+  --drift-p1: 18vh;
+  --drift-p2: 34vh;
+  --drift-p3: 50vh;
+  --run-from: 20vw;
+  --lens-frame: 0.88;
+  --lens-img: 1.2;
+  --depth-1: 0vh;
+  --depth-2: 8vh;
+  --depth-3: 16vh;
+
+  /* hero composition (desktop) */
+  --hero-pad: clamp(12px, 1.6vw, 28px);
+  --p1-w: 27vw; --p1-right: -4vw; --p1-top: 3vw;
+  --p2-w: 13vw; --p2-left: 47vw; --p2-top: 29vw;
+  --p3-w: 11vw; --p3-left: 61vw; --p3-top: 33vw;
+  --intro-w: min(44ch, 34vw);
+  --intro-mt: clamp(28px, 3vw, 52px);
+
+  --proof-pad: clamp(16px, 3vw, 48px);
+
+  /* La Montañita pinned row */
+  --pin-height: 320vh;
+  --pin-gap: 5vw;
+  --pin-head-w: 28vw;
+  --pin-poster-h: 66vh;
+  --pin-step: 6vh;
+}
+@media (max-width: 1023px) {
+  :root {
+    --size-name: 21vw;
+    --p1-w: 44vw; --p1-right: -10vw; --p1-top: 19vw;
+    --p2-w: 30vw; --p2-left: 12vw; --p2-top: 46vw;
+    --intro-w: 100%;
+    --intro-mt: 64vw;
+  }
 }
 @media (max-width: 767px) {
   :root { --gutter: 16px; --size-body: 16px; --header-h: 56px; }
