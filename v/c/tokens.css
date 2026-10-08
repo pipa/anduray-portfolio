@@ -1,0 +1,116 @@
+/* Version C: Idea, line, picture. Design and motion tokens.
+   Every duration, easing, distance and scroll fraction lives here; main.js reads the motion ones. */
+:root {
+  /* colour */
+  --paper: #F3F0E8;
+  --sheet: #FBF9F4;          /* drawing paper the sketches sit on */
+  --ink: #151412;
+  --muted: #5C574E;          /* 6.3:1 on paper */
+  --muted-on-ink: #A39E93;   /* 6.9:1 on ink */
+  --rule: #D8D2C4;
+  --rule-on-ink: #34312C;
+  --accent: #B23516;         /* the red pencil: 5.4:1 on paper */
+  --accent-on-ink: #E2542E;  /* 4.9:1 on ink */
+  --graphite: #8A847A;       /* construction lines, decorative only */
+
+  /* type */
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display-wdth: 68;
+  --display-wght: 800;
+  --note-wdth: 72;
+  --note-wght: 600;
+  --size-name: clamp(56px, 9.6vw, 184px);
+  --size-hero-line: clamp(28px, 3.3vw, 60px);
+  --size-line: clamp(28px, 3vw, 52px);
+  --size-h2: clamp(40px, 6vw, 96px);
+  --size-h3: clamp(30px, 3.4vw, 54px);
+  --size-num: clamp(56px, 7vw, 128px);
+  --size-clients: clamp(24px, 2.6vw, 40px);
+  --size-lede: clamp(18px, 1.45vw, 22px);
+  --size-body: 18px;
+  --size-small: 15px;
+  --size-note: 15px;
+  --size-label: 12px;
+  --lh-display: 0.88;
+  --lh-body: 1.55;
+  --track-label: 0.08em;
+
+  /* layout */
+  --max: 1440px;
+  --margin: clamp(20px, 4vw, 64px);
+  --gutter: 24px;
+  --header-h: 64px;
+  --section-gap: clamp(96px, 12vw, 200px);
+  --case-gap: clamp(88px, 10vw, 168px);
+  --board-pad: 4vh;          /* space above and below a sticky board */
+  --board-h: calc(100svh - var(--header-h) - 2 * var(--board-pad));
+  --note-w: 15rem;
+  --pencil-w: 1.75px;
+  --halo-w: 6px;
+
+  /* motion: easing */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint */
+  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
+
+  /* motion: durations */
+  --dur-feedback: 150ms;
+  --dur-hover: 200ms;
+  --dur-menu: 360ms;
+  --dur-reveal: 800ms;
+  --dur-draw: 900ms;         /* time-based pencil strokes: series notes, picks, awards */
+  --dur-caret: 1000ms;       /* one blink of the typing caret */
+
+  /* motion: stagger, delay, distance */
+  --stagger-reveal: 60ms;
+  --stagger-draw: 140ms;
+  --delay-draw: 350ms;       /* series notes start after the pictures land */
+  --scale-reveal: 1.03;
+  --scale-hover: 1.02;
+  --rise-menu: 12px;
+
+  /* hero cycle, per piece: sketch, then line, then picture, hold, fade */
+  --hero-sketch: 1800ms;
+  --hero-line: 1500ms;
+  --hero-picture: 1000ms;
+  --hero-hold: 2600ms;
+  --hero-out: 400ms;
+  --font-wait: 300ms;        /* longest wait for Archivo before the hero starts */
+
+  /* scroll-driven case boards */
+  --scrub-lerp: 0.14;        /* share of the remaining distance covered per 60 fps frame */
+  --beat-start: 0.86;        /* a beat starts when its top crosses this share of the viewport */
+  --beat-end: 0.34;          /* and is complete when its top reaches this share */
+  --scribble-share: 0.78;    /* part of the idea beat spent scribbling the sketch in */
+  --marks-from: 0.42;        /* idea and line marks start drawing at this point of their beat */
+  --type-share: 0.72;        /* part of the line beat spent typing */
+  --iris-share: 0.82;        /* part of the picture beat spent opening the poster */
+  --scribble-width: 0.26;    /* scribble stroke as a share of the sheet's longer side */
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --size-name: 13vw;
+    --size-hero-line: clamp(28px, 4.6vw, 40px);
+    --board-h: 52svh;
+    --beat-start: 0.98;
+    --beat-end: 0.64;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 16px;
+    --header-h: 56px;
+    --size-name: 18vw;
+    --size-hero-line: 7.6vw;
+    --size-line: 7.6vw;
+    --size-body: 16px;
+    --size-note: 13px;
+    --size-num: 56px;
+    --note-w: 100%;
+    --board-h: 47svh;
+    --board-pad: 10px;
+    --beat-end: 0.7;
+  }
+}
