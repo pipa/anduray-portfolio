@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Version D: the page around Kernel's hero (Muse). Header + phone menu,
+   cut-out case cards, flat paper sections. All copy sits on solid sheets.
+   Motion: transform + opacity only. Neon mode: same sheets, edges become tubes.
+   ========================================================================== */
+html { scroll-padding-top: calc(var(--header-h) + 16px); }
+body { font-size: var(--size-body); line-height: 1.55; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { width: min(1440px, 100%); margin-inline: auto; padding-inline: var(--margin); }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 14px; background: var(--text); color: var(--surface); }
+.skip:focus { top: 12px; }
+
+/* ---- header: one solid strip, toggle lives here ---------------------------- */
+.bar { position: fixed; z-index: 50; inset: 0 0 auto; height: var(--header-h); display: flex; align-items: center; gap: 24px;
+  padding-inline: var(--margin); background: var(--surface); box-shadow: 0 1px 0 var(--rule); }
+.who { font-weight: 700; font-size: 15px; text-decoration: none; margin-right: auto; white-space: nowrap; }
+.nav { display: flex; gap: 22px; font-size: 14px; }
+.nav a { text-decoration: none; padding: 12px 0; }
+.nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+.menu-btn, .menu-close { font: inherit; font-size: 14px; background: none; border: 0; color: inherit; cursor: pointer; min-height: 44px; padding: 0 2px; }
+.menu-btn { display: none; }
+.d-hero { margin-top: 0; }
+.d-hero__scene { top: var(--header-h); }
+
+/* ---- phone menu ------------------------------------------------------------- */
+.menu { position: fixed; inset: 0; z-index: 60; background: var(--text); color: var(--surface); display: flex; flex-direction: column;
+  justify-content: center; padding: calc(var(--header-h) + 8px) var(--margin) 32px; opacity: 0; transform: translateY(-2%);
+  transition: opacity var(--dur-quick) var(--ease-enter), transform var(--dur-quick) var(--ease-enter); }
+:root[data-mode="neon"] .menu { background: var(--surface); color: var(--text); box-shadow: inset 0 0 0 2px var(--neon-2); }
+.menu.on { opacity: 1; transform: none; }
+.menu nav { display: flex; flex-direction: column; gap: 4px; }
+.menu nav a { font-weight: 800; font-stretch: var(--display-wdth); text-transform: uppercase; font-size: clamp(56px, 17vw, 120px);
+  line-height: .9; text-decoration: none; letter-spacing: -.01em; color: inherit; }
+.menu-foot { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 40px; font-size: 15px; }
+.menu-close { position: absolute; top: 10px; right: var(--margin); color: inherit; }
+.menu :focus-visible { outline-color: currentColor; }
+html.menu-open { overflow: hidden; }
+
+/* ---- section heads ------------------------------------------------------------ */
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: clamp(40px, 6vw, 96px); }
+.sec-head h2, .flat h2, .contact h2 { margin: 0; font-size: var(--size-h2); font-weight: 800; font-stretch: var(--display-wdth);
+  line-height: var(--lh-display); letter-spacing: var(--track-display); text-transform: uppercase; }
+.sec-head > span, .sec-head > a { font-size: var(--size-label); font-weight: 600; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--accent); }
+.work { padding: clamp(96px, 12vw, 200px) 0 0; }
+
+/* ---- case cards: a cut sheet with two sheets peeking behind it --------------- */
+.cards { display: grid; gap: var(--card-gap); padding-bottom: var(--card-gap); }
+.card { position: relative; transform: rotate(var(--tilt)); }
+.card::before, .card::after { content: ""; position: absolute; inset: 0; z-index: -1; transition: transform var(--dur-reveal) var(--ease-premium); }
+.card::before { background: var(--sheet-3); transform: translate(var(--card-peek-2), var(--card-peek-2)) rotate(calc(var(--tilt) * 1.6)); }
+.card::after  { background: var(--sheet-2); transform: translate(calc(var(--card-peek-1) * -1), var(--card-peek-1)) rotate(calc(var(--tilt) * -2.2)); }
+.card__sheet { position: relative; display: grid; gap: clamp(28px, 4vw, 64px); padding: var(--card-pad); background: var(--card-bg);
+  box-shadow: 0 0 0 1px var(--sheet-edge-dark), var(--card-shadow); transform: rotate(calc(var(--tilt) * -1)); }
+@media (min-width: 1024px) {
+  .card__sheet { grid-template-columns: 5fr 7fr; align-items: start; }
+  .card:nth-child(even) .card__txt { order: 2; }
+  .card.cl .card__sheet { grid-template-columns: 4fr 8fr; }
+}
+.card__n { margin: 0 0 18px; font-size: var(--size-label); font-weight: 600; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--text-muted); }
+.card__n span { color: var(--accent); margin-right: 8px; }
+.card h3 { margin: 0; font-size: var(--size-h3); font-weight: 800; font-stretch: var(--display-wdth); line-height: .95; text-transform: uppercase; }
+.card__body { margin: 20px 0 0; max-width: 46ch; }
+.card blockquote { margin: 28px 0 0; }
+.card blockquote p { margin: 0; font-size: var(--size-quote); font-weight: 700; font-stretch: 80%; line-height: 1.1; color: var(--accent); }
+.gloss { margin: 8px 0 0; font-size: 15px; color: var(--text-muted); }
+.card dl { margin: 28px 0 0; display: grid; gap: 10px; font-size: 15px; }
+.card dl div { display: grid; grid-template-columns: 7ch 1fr; gap: 12px; border-top: 1px solid var(--rule); padding-top: 10px; }
+.card dt { color: var(--text-muted); }
+.card dd { margin: 0; }
+.more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 18px; font-size: var(--size-label); font-weight: 600;
+  letter-spacing: var(--track-label); text-transform: uppercase; color: var(--accent); text-underline-offset: .35em; }
+.print { margin: 0; background: var(--surface); padding: clamp(6px, .8vw, 12px); box-shadow: 0 1px 0 var(--sheet-edge-dark), 0 6px 14px rgba(21,20,18,.16); }
+.print.lead { transform: rotate(calc(var(--tilt) * -1.5)); }
+.prints { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 20px); margin-top: clamp(14px, 2vw, 28px); align-items: start; }
+.prints .print:nth-child(2) { transform: translateY(14px) rotate(1deg); }
+.prints .print:nth-child(3) { transform: rotate(-1deg); }
+.cp .card__art { max-width: 640px; }
+
+/* reveal: the card lands, its two back sheets slide out from under it */
+.card[data-in]:not(.in)::before, .card[data-in]:not(.in)::after { transform: translate(0, 0); }
+.card[data-in] .card__sheet { transition: transform var(--dur-reveal) var(--ease-premium), opacity var(--dur-reveal) var(--ease-premium); }
+.card[data-in]:not(.in) .card__sheet { opacity: 0; transform: translateY(48px) rotate(calc(var(--tilt) * -1)); }
+
+/* ---- more work: small prints on a flat sheet ---------------------------------- */
+.morew { padding-block: clamp(40px, 6vw, 96px) var(--card-gap); }
+.more-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(24px, 3vw, 44px) clamp(16px, 2vw, 32px); grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.more-grid li { transform: rotate(var(--tilt)); transition: transform var(--dur-quick) var(--ease-premium), opacity var(--dur-reveal) var(--ease-premium); }
+.more-grid li[data-in]:not(.in) { opacity: 0; transform: translateY(24px) rotate(var(--tilt)); }
+.more-grid a { display: block; text-decoration: none; }
+.more-grid .print { display: block; aspect-ratio: 4 / 3; }
+.more-grid .print img { width: 100%; height: 100%; object-fit: cover; }
+.more-grid .cap { display: grid; margin-top: 12px; font-size: 15px; line-height: 1.35; }
+.more-grid .cap span { color: var(--text-muted); font-size: 14px; }
+@media (hover: hover) { .more-grid li:hover { transform: rotate(0deg) translateY(-4px); } }
+
+/* ---- flat paper: experience + about ------------------------------------------- */
+.flat { display: grid; gap: clamp(64px, 8vw, 128px); padding-block: var(--card-gap); border-top: 1px solid var(--rule); }
+@media (min-width: 1024px) { .flat { grid-template-columns: 1fr 1fr; } }
+.flat h2 { margin-bottom: 36px; font-size: clamp(48px, 6vw, 104px); }
+.flat h3 { margin: 40px 0 8px; font-size: var(--size-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--accent); }
+.flat p { margin: 0 0 14px; max-width: 52ch; }
+.flat .st { font-size: clamp(20px, 1.8vw, 28px); line-height: 1.35; }
+.muted { color: var(--text-muted); }
+.xp { list-style: none; margin: 0; padding: 0; }
+.xp li { display: grid; grid-template-columns: 11ch 1fr; gap: 4px 16px; padding: 14px 0; border-top: 1px solid var(--rule); }
+.xp .y { color: var(--text-muted); font-size: 15px; padding-top: 2px; }
+.xp .r { font-weight: 600; }
+.xp .o { grid-column: 2; color: var(--text-muted); font-size: 15px; }
+
+/* ---- contact: the last sheet, ink in day ------------------------------------ */
+.contact { padding: 0 var(--margin) var(--margin); }
+.contact__sheet { background: var(--text); color: var(--surface); padding: clamp(40px, 6vw, 96px) var(--card-pad); box-shadow: var(--card-shadow); }
+:root[data-mode="neon"] .contact__sheet { background: var(--card-bg); color: var(--text); box-shadow: 0 0 0 2px var(--neon-2), 0 0 8px var(--neon-2); }
+.contact h2 { font-size: clamp(48px, 7vw, 120px); }
+.mail { display: inline-block; margin-top: clamp(28px, 4vw, 56px); font-size: clamp(22px, 5.4vw, 92px); font-weight: 800; font-stretch: var(--display-wdth);
+  line-height: 1; text-decoration-thickness: 2px; text-underline-offset: .12em; overflow-wrap: anywhere; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 32px 0 0; }
+.links a { display: inline-flex; align-items: center; min-height: 44px; }
+.foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 56px 0 0; font-size: 14px; opacity: .8; }
+.contact :focus-visible { outline-color: currentColor; }
+
+/* ---- neon mode: sheets go dark, every cut edge becomes a tube ---------------- */
+:root[data-mode="neon"] .card::before { background: transparent; box-shadow: inset 0 0 0 2px var(--neon-5); opacity: .55; }
+:root[data-mode="neon"] .card::after  { background: transparent; box-shadow: inset 0 0 0 2px var(--neon-4); opacity: .55; }
+:root[data-mode="neon"] .card__sheet { box-shadow: 0 0 0 2px var(--tube), 0 0 8px var(--tube); }
+:root[data-mode="neon"] .print { background: var(--card-bg); box-shadow: 0 0 0 1px var(--rule); }
+
+/* ---- phones ------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .nav .opt { display: none; }
+  .nav { gap: 0; }
+  .menu-btn { display: inline-block; }
+  .bar { gap: 14px; }
+  .bar .neon-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .bar .neon-toggle { padding: 0 11px; }
+  .card { transform: none; }
+  .card__sheet { transform: none; }
+  .card[data-in]:not(.in) .card__sheet { transform: translateY(32px); }
+  .card::before { transform: translate(8px, 8px); }
+  .card::after { transform: translate(4px, 4px); }
+  .xp li { grid-template-columns: 1fr; }
+  .xp .o { grid-column: 1; }
+}
+
+/* ---- reduced motion: everything in place ------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .menu, .card::before, .card::after, .card[data-in] .card__sheet, .more-grid li { transition: none; }
+  .card[data-in]:not(.in) .card__sheet, .more-grid li[data-in]:not(.in) { opacity: 1; }
+}

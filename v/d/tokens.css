@@ -49,7 +49,7 @@
      like a print proof, light sky to ink foreground. */
   --sheet-1: #F3F0E8;       /* 0%   registration-mark sun (same as paper: edge + shadow carry it) */
   --sheet-2: #B5B2AC;       /* 25%  Merendon ridge (San Pedro Sula) */
-  --sheet-3: #7A7873;       /* 50%  the wave */
+  --sheet-3: #D4572F;       /* the wave: the one warm sheet (Muse), Honduras to Florida */
   --sheet-4: #44433F;       /* 75%  Florida coast + palms */
   --sheet-5: #151412;       /* 100% ink swell, foreground */
   --sheet-edge-dark: rgba(21, 20, 18, 0.28);    /* 1 px cut edge on light sheets (1-2) */
@@ -57,6 +57,7 @@
   --sheet-shadow-color: #151412;  /* 12 px ink shadow ... */
   --sheet-shadow-opacity: 0.18;   /* ... at 18% (filter #d-sheet-shadow, static) */
   --panel-bg: var(--surface);     /* name panel: solid, flat, no shadow */
+  --card-bg: #FBF9F4;             /* [page] case cards: a lighter sheet than the page */
   --panel-edge: transparent;
 
   /* ---- toggle ---------------------------------------------------------- */
@@ -105,6 +106,9 @@
   --toggle-knob: var(--surface);
   --toggle-track-on: var(--neon-1);
   --toggle-knob-on: var(--surface);
+
+  --card-bg: #15121F;             /* [page] neon card: night paper, edge is the tube */
+  --card-shadow: none;
 }
 
 :root {
@@ -155,6 +159,20 @@
   --track-label: 0.08em;
 
   /* ---- PIXEL: type tokens go here --------------------------------------- */
+  /* [page] Muse: header, sections, cards (rest of D) */
+  --header-h: 64px;
+  --margin: clamp(16px, 4vw, 64px);
+  --size-h2: clamp(56px, 10vw, 168px);
+  --size-h3: clamp(30px, 3.4vw, 54px);
+  --size-body: clamp(16px, 1.2vw, 19px);
+  --size-quote: clamp(24px, 2.4vw, 38px);
+  --card-pad: clamp(20px, 3.4vw, 56px);
+  --card-gap: clamp(72px, 10vw, 160px);
+  --card-peek-1: 6px;             /* sheets behind a card: 6 px, then 12 px (same step as the hero) */
+  --card-peek-2: 12px;
+  --card-shadow: 0 12px 24px rgba(21, 20, 18, 0.18);
+  --dur-quick: 320ms;
+  --dur-reveal: 900ms;
 
   /* ---- PIXEL: layout tokens go here ------------------------------------- */
 
