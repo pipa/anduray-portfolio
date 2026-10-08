@@ -97,7 +97,7 @@
 @media (max-width: 1023px) {
   :root {
     --size-name: 21vw;
-    --p1-w: 44vw; --p1-right: -10vw; --p1-top: 19vw;
+    --p1-w: 44vw; --p1-right: -10vw; --p1-top: 14vw;
     --p2-w: 30vw; --p2-left: 12vw; --p2-top: 46vw;
     --intro-w: 100%;
     --intro-mt: 64vw;
