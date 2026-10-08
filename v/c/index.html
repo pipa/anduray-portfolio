@@ -5,621 +5,296 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Roberto Anduray, Senior Graphic Designer and Creative Director</title>
-<meta name="description" content="Roberto Anduray is a senior graphic designer and creative director in Port St. Lucie, Florida. He comes up with the idea, writes the line and makes the picture.">
-<meta name="theme-color" content="#F3F0E8">
+<meta name="description" content="Roberto Anduray is a senior graphic designer and creative director in Port St. Lucie, Florida, with 18 years of brand systems, campaigns and content.">
 <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/archivo-latin.woff2" crossorigin>
-<link rel="preload" as="image" href="../../assets/work/montanita-5.webp" imagesrcset="../../assets/work/montanita-5-640.webp 640w, ../../assets/work/montanita-5.webp 900w" imagesizes="(max-width: 767px) 58vw, (max-width: 1023px) 46vw, 36vw" fetchpriority="high">
-<link rel="preload" as="image" href="sketches/montanita-5-640.webp" media="(max-width: 1023px)">
-<link rel="preload" as="image" href="sketches/montanita-5.webp" media="(min-width: 1024px)">
+<link rel="preload" as="image" href="sketches/montanita-5-640.webp" fetchpriority="high">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
-<script>
-  (function (d, w) {
-    var r = d.documentElement;
-    var still = /[?&]static\b/.test(location.search) || w.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    r.classList.add('js', still ? 'still' : 'motion');
-    // if main.js never runs, fall back to the static page rather than a blank hero
-    w.setTimeout(function () { if (!w.__ilp) { r.classList.remove('motion'); r.classList.add('still'); } }, 4000);
-  })(document, window);
-</script>
 <script src="main.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to work</a>
-
-<header class="top">
-  <div class="bar">
-    <a class="who" href="#top">Roberto Anduray</a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="menu-open-label">Menu</span><span class="menu-close-label">Close</span></button>
-    <nav class="nav" id="nav" aria-label="Main">
-      <ul>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="nav-cv"><a class="cv" href="../../assets/Roberto-Anduray-CV.pdf" download>Download CV</a></li>
-      </ul>
-      <p class="nav-foot"><a href="mailto:robertoanduray1980@gmail.com">robertoanduray1980@gmail.com</a><a href="https://www.behance.net/randuray">Behance</a></p>
-    </nav>
-  </div>
+<header class="top" id="top-bar">
+  <a class="who" href="#top">Roberto Anduray</a>
+  <nav class="nav" aria-label="Main">
+    <a href="#work">Work</a><a class="opt" href="#experience">Experience</a><a class="opt" href="#about">About</a><a class="opt" href="#contact">Contact</a><a class="cv" href="../../assets/Roberto-Anduray-CV.pdf" download>CV</a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
-
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <nav aria-label="Menu"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <p class="menu-foot"><a href="../../assets/Roberto-Anduray-CV.pdf" download>Download CV</a><a href="https://www.behance.net/randuray">Behance</a><a href="mailto:robertoanduray1980@gmail.com">Email</a></p>
+  <button class="menu-close" type="button">Close</button>
+</div>
 <main id="top">
-  <!-- Hero: one piece at a time goes from sketch, to line, to finished poster -->
   <section class="hero" aria-labelledby="name">
-    <p class="kicker label">Senior Graphic Designer &amp; Creative Director, Port St. Lucie, FL</p>
-    <h1 id="name" class="display name"><span>Roberto</span> <span>Anduray</span></h1>
-
-    <ol class="steps" aria-hidden="true">
-      <li><i><b></b></i><span>01</span> The idea</li>
-      <li><i><b></b></i><span>02</span> The line</li>
-      <li><i><b></b></i><span>03</span> The picture</li>
-    </ol>
-
-    <div class="hero-lines" aria-hidden="true">
-      <p class="line is-on" lang="es">&ldquo;Me vi al espejo y no reconoc&iacute; a ese hombre&rdquo;</p>
-      <p class="line" lang="es">El mosquito portador del dengue no es tu amigo.</p>
-      <p class="line" lang="es">&iexcl;As&iacute; debes tocarte!</p>
-    </div>
-    <div class="hero-glosses" aria-hidden="true">
-      <p class="gloss is-on"><b>&ldquo;I looked in the mirror and didn&rsquo;t recognize that man.&rdquo;</b><span>El Heraldo, La Monta&ntilde;ita fire special edition</span></p>
-      <p class="gloss"><b>&ldquo;The mosquito that carries dengue is not your friend.&rdquo;</b><span>El Heraldo, dengue awareness campaign</span></p>
-      <p class="gloss"><b>&ldquo;This is how to check yourself.&rdquo;</b><span>Estilo magazine, breast self-exam campaign</span></p>
-    </div>
-
-    <figure class="board hero-board" aria-hidden="true" data-fit="slice">
-      <div class="sheet" style="--ar: 900 / 1225">
-        <div class="art">
-          <img class="final is-on" src="../../assets/work/montanita-5.webp" srcset="../../assets/work/montanita-5-640.webp 640w, ../../assets/work/montanita-5.webp 900w" sizes="(max-width: 767px) 58vw, (max-width: 1023px) 46vw, 36vw" width="900" height="1225" alt="" fetchpriority="high"
-            data-sketch="sketches/montanita-5.webp" data-sketch-small="sketches/montanita-5-640.webp" data-focus="50 59">
-          <img class="final" data-src="../../assets/work/dengue-1.webp" data-srcset="../../assets/work/dengue-1-640.webp 640w, ../../assets/work/dengue-1.webp 900w" sizes="(max-width: 767px) 58vw, (max-width: 1023px) 46vw, 36vw" width="900" height="1225" alt=""
-            data-sketch="sketches/dengue-1.webp" data-sketch-small="sketches/dengue-1-640.webp" data-focus="47 46">
-          <img class="final" data-src="../../assets/work/estilo-5.webp" width="800" height="965" alt=""
-            data-sketch="sketches/estilo-5.webp" data-sketch-small="sketches/estilo-5-640.webp" data-focus="62 42">
-          <svg class="cover" viewBox="0 0 900 1225" preserveAspectRatio="none" focusable="false">
-            <defs>
-              <mask id="hero-scrib" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><path class="scrib" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></mask>
-              <mask id="hero-iris" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><rect width="900" height="1225" fill="#fff"/><circle class="iris" cx="450" cy="720" r="0" fill="#000"/></mask>
-            </defs>
-            <g mask="url(#hero-iris)">
-              <rect class="paper" width="900" height="1225"/>
-              <image class="sk" width="900" height="1225" preserveAspectRatio="xMidYMid slice" mask="url(#hero-scrib)"/>
-              <rect class="edge" x="1" y="1" width="898" height="1223"/>
-            </g>
-          </svg>
-        </div>
-        <span class="spot" data-mark="under" data-piece="0" style="--x: 50%; --y: 28.5%; --w: 46%"></span>
-        <span class="spot" data-mark="under" data-piece="1" style="--x: 81%; --y: 27.5%; --w: 26%"></span>
-        <span class="spot" data-mark="under" data-piece="2" style="--x: 33%; --y: 46%; --w: 34%"></span>
+    <div class="left">
+      <div>
+        <p class="kicker">Senior Graphic Designer &amp; Creative Director, Port St. Lucie, FL</p>
+        <h1 id="name">Roberto<br>Anduray</h1>
       </div>
-      <img class="rough" src="sketches/montanita-5-640.webp" width="640" height="871" alt="" loading="lazy">
-    </figure>
-
-    <div class="hero-ctrl">
-      <p class="count label" aria-hidden="true"><span class="now">01</span> / 03</p>
-      <button class="ctrl ctrl-pause" type="button" aria-pressed="false" aria-label="Pause animation"><span class="when-on">Pause</span><span class="when-off">Play</span></button>
-      <button class="ctrl ctrl-prev" type="button">Previous</button>
-      <button class="ctrl ctrl-next" type="button">Next</button>
-    </div>
-
-    <div class="sr">
-      <h2>From the idea to the picture</h2>
-      <ul>
-        <li>El Heraldo, La Monta&ntilde;ita fire special edition. Headline: <span lang="es">&ldquo;Me vi al espejo y no reconoc&iacute; a ese hombre&rdquo;</span>, I looked in the mirror and didn&rsquo;t recognize that man.</li>
-        <li>El Heraldo, dengue awareness campaign. Headline: <span lang="es">&ldquo;El mosquito portador del dengue no es tu amigo&rdquo;</span>, the mosquito that carries dengue is not your friend.</li>
-        <li>Estilo magazine, breast self-exam campaign. Headline: <span lang="es">&ldquo;&iexcl;As&iacute; debes tocarte!&rdquo;</span>, this is how to check yourself.</li>
-      </ul>
-    </div>
-
-    <div class="intro">
       <p class="lede">I come up with the idea, write the line and make the picture, for brands people see every day.</p>
-      <p class="small">Eighteen years of campaigns, brand systems and content, first at McCann and Havas in Honduras, now in-house for consumer brands in Florida.</p>
+      <ol class="hsteps" aria-hidden="true"><li><i><b></b></i>01 The idea</li><li><i><b></b></i>02 The line</li><li><i><b></b></i>03 The picture</li></ol>
+      <p class="hline" aria-hidden="true"></p>
+      <p class="hcap" aria-hidden="true"></p>
     </div>
-  </section>
-
-  <section class="clients" aria-labelledby="clients-h">
-    <div class="wrap">
-      <h2 id="clients-h" class="label">Clients and agencies</h2>
-      <ul>
-        <li>El Heraldo</li><li>Banpa&iacute;s</li><li>Estilo</li><li>E&amp;N</li><li>Buen Provecho</li><li>Leyde</li><li>USAP</li><li>QuieroCasa.hn</li><li>H2Ocean</li><li>Bug Bite Thing</li><li class="agency">McCann</li><li class="agency">Havas</li>
-      </ul>
+    <div class="hframe">
+      <svg viewBox="0 0 900 1225" role="img" aria-label="Three of his posters, each drawn first as a pencil sketch, then given its line, then shown finished">
+        <defs>
+          <mask id="scrib" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><path id="sp" fill="none" stroke="#fff" stroke-width="230" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/></mask>
+          <mask id="reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><circle id="rc" cx="450" cy="720" r="0" fill="#fff"/></mask>
+        </defs>
+        <rect width="900" height="1225" style="fill:var(--sheet)"/>
+        <g id="art"><image id="sk" width="900" height="1225" preserveAspectRatio="xMidYMid slice" mask="url(#scrib)"/>
+        <image id="fin" width="900" height="1225" preserveAspectRatio="xMidYMid slice" mask="url(#reveal)"/></g>
+        <rect width="900" height="1225" style="fill:none;stroke:var(--rule);stroke-width:2"/>
+      </svg>
+      <span class="htag" aria-hidden="true"></span>
     </div>
   </section>
 
   <section class="work" id="work" aria-labelledby="work-h">
-    <div class="wrap sec-head">
-      <h2 id="work-h" class="display">Selected work</h2>
-      <p class="label">Seven projects, each in three beats: the idea, the line, the picture</p>
+    <div class="wrap">
+      <div class="sec-head"><h2 id="work-h">Selected work<svg class="under" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 16 C 80 6, 160 22, 240 12 S 360 8, 396 14" pathLength="1"/></svg></h2><p class="small">Eighteen years of brand systems, campaigns and content: first at McCann and Havas in Honduras, now in-house for consumer brands in Florida.</p></div>
+      <ul class="clients" aria-label="Clients and agencies"><li>El Heraldo</li><li>Banpaís</li><li>Estilo</li><li>E&amp;N</li><li>Buen Provecho</li><li>Leyde</li><li>USAP</li><li>QuieroCasa.hn</li><li>H2Ocean</li><li>Bug Bite Thing</li><li>McCann</li><li>Havas</li></ul>
+      
+    <article class="case" aria-labelledby="h-montanita">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">01</span>
+        <div><p class="client"><span class="sr">Project 01, </span>El Heraldo</p><h3 id="h-montanita">La Montañita fire, special edition</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board" data-in>
+          <svg viewBox="0 0 900 1225" role="img" aria-label="Key visual: a firefighter in smoke, quote 'Escuche el crujir de las llamas que se acercaban'. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-montanita" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><circle class="rv" cx="504" cy="784" r="0" data-r="936" fill="#fff"/></mask></defs>
+            <image href="sketches/montanita-4-640.webp" width="900" height="1225" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/montanita-4-640.webp" data-full="../../assets/work/montanita-4.webp" width="900" height="1225" preserveAspectRatio="xMidYMid slice" mask="url(#rv-montanita)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          <blockquote class="cline"><p lang="es">“Me vi al espejo y no reconocí a ese hombre.”</p><footer>I looked in the mirror and didn't recognise that man.</footer></blockquote>
+          <p class="body">Teaser and launch key visuals for El Heraldo's special edition on the La Montañita fire, told through one firefighter's own words.</p>
+          <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Editorial, advertising</dd></dl>
+          <a class="more" href="https://www.behance.net/gallery/129200693/El-Heraldo-Special-Edition-La-Montanita-Fire-Incident">View on Behance<span class="sr"> (La Montañita fire, special edition)</span></a>
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from La Montañita fire, special edition" tabindex="0">
+          <li data-in><img src="../../assets/work/montanita-5.webp" width="900" height="1225" srcset="../../assets/work/montanita-5-640.webp 640w, ../../assets/work/montanita-5.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Key visual: hands holding up a helmet in front of flames, 'Me vi al espejo y no reconocí a ese hombre'"></li>
+          <li data-in><img src="../../assets/work/montanita-1.webp" width="900" height="1225" srcset="../../assets/work/montanita-1-640.webp 640w, ../../assets/work/montanita-1.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Teaser: firefighter jackets and a helmet hanging under a red light, 'Un llamado de auxilio que jamás se olvidará'"></li>
+          <li data-in><img src="../../assets/work/montanita-2.webp" width="900" height="1225" srcset="../../assets/work/montanita-2-640.webp 640w, ../../assets/work/montanita-2.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Teaser: a scorched helmet on ash, 'Grandeza humana que el fuego no extinguió'"></li>
+          <li data-in><img src="../../assets/work/montanita-3.webp" width="900" height="1225" srcset="../../assets/work/montanita-3-640.webp 640w, ../../assets/work/montanita-3.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Key visual: a firefighter silhouetted against a wall of fire, 'De entre las llamas renació un héroe'"></li>
+      </ul>
+    </article>
+    <article class="case" aria-labelledby="h-dengue">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">02</span>
+        <div><p class="client"><span class="sr">Project 02, </span>El Heraldo</p><h3 id="h-dengue">The mosquito is not your friend</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board" data-in>
+          <svg viewBox="0 0 900 1225" role="img" aria-label="A young man on a sofa next to a mosquito; tip: throw out unused containers. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-dengue" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><circle class="rv" cx="504" cy="416" r="0" data-r="957" fill="#fff"/></mask></defs>
+            <image href="sketches/dengue-2-640.webp" width="900" height="1225" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/dengue-2-640.webp" data-full="../../assets/work/dengue-2.webp" width="900" height="1225" preserveAspectRatio="xMidYMid slice" mask="url(#rv-dengue)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          <blockquote class="cline"><p lang="es">“…no es tu amigo.”</p><footer>…is not your friend.</footer></blockquote>
+          <p class="body">A public-awareness series that casts the dengue mosquito as the friend you need to drop, with one prevention tip per poster. It is his most-viewed project.</p>
+          <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Illustration, advertising</dd></dl>
+          <a class="more" href="https://www.behance.net/gallery/128972301/Dengue-Awareness-Campaign-El-Heraldo">View on Behance<span class="sr"> (The mosquito is not your friend)</span></a>
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from The mosquito is not your friend" tabindex="0">
+          <li data-in><img src="../../assets/work/dengue-1.webp" width="900" height="1225" srcset="../../assets/work/dengue-1-640.webp 640w, ../../assets/work/dengue-1.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="A woman takes a selfie with a giant mosquito; tip: clean standing water weekly"></li>
+          <li data-in><img src="../../assets/work/dengue-3.webp" width="900" height="1225" srcset="../../assets/work/dengue-3-640.webp 640w, ../../assets/work/dengue-3.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="A man and a mosquito leaning on old tyres; tip: don't let water collect in tyres"></li>
+      </ul>
+    </article>
+    <article class="case" aria-labelledby="h-estilo">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">03</span>
+        <div><p class="client"><span class="sr">Project 03, </span>Estilo magazine</p><h3 id="h-estilo">Breast self-exam campaign</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board" data-in>
+          <svg viewBox="0 0 800 965" role="img" aria-label="Pink duotone hand, '¿Quién sabe cómo?'. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-estilo" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="965"><circle class="rv" cx="400" cy="502" r="0" data-r="646" fill="#fff"/></mask></defs>
+            <image href="sketches/estilo-1-640.webp" width="800" height="965" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/estilo-1.webp" data-full="../../assets/work/estilo-1.webp" width="800" height="965" preserveAspectRatio="xMidYMid slice" mask="url(#rv-estilo)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          <blockquote class="cline"><p lang="es">“¡Así debes tocarte!”</p><footer>This is how to check yourself.</footer></blockquote>
+          <p class="body">Hand gestures and hand-lettered questions in duotone ask what women are unsure about, then answer with “Así debes tocarte”, this is how to check yourself.</p>
+          <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Photography, advertising</dd></dl>
+          <a class="more" href="https://www.behance.net/gallery/128972207/Estilo-Magazine-Breast-Cancer-Visual-Campaign">View on Behance<span class="sr"> (Breast self-exam campaign)</span></a>
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from Breast self-exam campaign" tabindex="0">
+          <li data-in><img src="../../assets/work/estilo-5.webp" width="800" height="965" loading="lazy" decoding="async" alt="Mint duotone woman with line-drawn hands, '¡Así debes tocarte!'"></li>
+          <li data-in><img src="../../assets/work/estilo-2.webp" width="800" height="965" loading="lazy" decoding="async" alt="Teal duotone hand, '¿Qué tan frecuente?'"></li>
+          <li data-in><img src="../../assets/work/estilo-3.webp" width="800" height="965" loading="lazy" decoding="async" alt="Yellow duotone hand, '¿De qué forma es correcto?'"></li>
+          <li data-in><img src="../../assets/work/estilo-4.webp" width="800" height="965" loading="lazy" decoding="async" alt="Light blue duotone hand, '¿Es tan necesario?'"></li>
+          <li data-in><img src="../../assets/work/estilo-6.webp" width="800" height="965" loading="lazy" decoding="async" alt="Yellow duotone woman with line-drawn hands, '¡Así debes tocarte!'"></li>
+      </ul>
+    </article>
+    <article class="case" aria-labelledby="h-banpais">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">04</span>
+        <div><p class="client"><span class="sr">Project 04, </span>Banpaís</p><h3 id="h-banpais">Brand book 2019</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board wide" data-in>
+          <svg viewBox="0 0 1400 787" role="img" aria-label="Brand book page: Pantone colour specifications. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-banpais" maskUnits="userSpaceOnUse" x="0" y="0" width="1400" height="787"><circle class="rv" cx="140" cy="173" r="0" data-r="1406" fill="#fff"/></mask></defs>
+            <image href="sketches/banpais-2-640.webp" width="1400" height="787" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/banpais-2-640.webp" data-full="../../assets/work/banpais-2.webp" width="1400" height="787" preserveAspectRatio="xMidYMid slice" mask="url(#rv-banpais)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          
+          <p class="body">The 2019 brand book for a Honduran bank: the yellow and blue split, the type family, photography direction and a closing-frame system for every ad format.</p>
+          <dl><dt>Field</dt><dd>Brand identity, guidelines</dd></dl>
+          <a class="more" href="https://www.behance.net/gallery/243927369/BrandBook-Banpais">View on Behance<span class="sr"> (Brand book 2019)</span></a>
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from Brand book 2019" tabindex="0">
+          <li data-in><img src="../../assets/work/banpais-1.webp" width="1400" height="787" srcset="../../assets/work/banpais-1-640.webp 640w, ../../assets/work/banpais-1.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Banpaís brand book cover: the logo on bright yellow"></li>
+          <li data-in><img src="../../assets/work/banpais-3.webp" width="1400" height="787" srcset="../../assets/work/banpais-3-640.webp 640w, ../../assets/work/banpais-3.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Brand book page: typography"></li>
+          <li data-in><img src="../../assets/work/banpais-4.webp" width="1400" height="787" srcset="../../assets/work/banpais-4-640.webp 640w, ../../assets/work/banpais-4.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Brand book page: photography direction, vivid colour"></li>
+          <li data-in><img src="../../assets/work/banpais-5.webp" width="1400" height="788" srcset="../../assets/work/banpais-5-640.webp 640w, ../../assets/work/banpais-5.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Brand book page: corporate version of an ad layout"></li>
+      </ul>
+    </article>
+    <article class="case" aria-labelledby="h-buenprovecho">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">05</span>
+        <div><p class="client"><span class="sr">Project 05, </span>Buen Provecho magazine</p><h3 id="h-buenprovecho">Advertiser media kit</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board wide" data-in>
+          <svg viewBox="0 0 1400 778" role="img" aria-label="Buen Provecho media kit cover with food photography and a tablet. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-buenprovecho" maskUnits="userSpaceOnUse" x="0" y="0" width="1400" height="778"><circle class="rv" cx="840" cy="436" r="0" data-r="950" fill="#fff"/></mask></defs>
+            <image href="sketches/buenprovecho-1-640.webp" width="1400" height="778" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/buenprovecho-1-640.webp" data-full="../../assets/work/buenprovecho-1.webp" width="1400" height="778" preserveAspectRatio="xMidYMid slice" mask="url(#rv-buenprovecho)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          
+          <p class="body">A media kit that sells a food magazine to advertisers: editorial mix, audience and circulation, set in a warm, textured system built from the magazine's own photography.</p>
+          <dl><dt>Field</dt><dd>Branding, editorial, advertising</dd></dl>
+          <a class="more" href="https://www.behance.net/gallery/243961893/Buen-Provecho_Media-Kit">View on Behance<span class="sr"> (Advertiser media kit)</span></a>
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from Advertiser media kit" tabindex="0">
+          <li data-in><img src="../../assets/work/buenprovecho-2.webp" width="1400" height="778" srcset="../../assets/work/buenprovecho-2-640.webp 640w, ../../assets/work/buenprovecho-2.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Media kit page: editorial breakdown with a 65% recipes figure"></li>
+          <li data-in><img src="../../assets/work/buenprovecho-3.webp" width="1400" height="778" srcset="../../assets/work/buenprovecho-3-640.webp 640w, ../../assets/work/buenprovecho-3.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Media kit page: dessert section"></li>
+          <li data-in><img src="../../assets/work/buenprovecho-4.webp" width="1400" height="778" srcset="../../assets/work/buenprovecho-4-640.webp 640w, ../../assets/work/buenprovecho-4.webp 1400w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Media kit page: circulation figures"></li>
+      </ul>
+    </article>
+    <article class="case" aria-labelledby="h-filmfest">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">06</span>
+        <div><p class="client"><span class="sr">Project 06, </span>El Heraldo</p><h3 id="h-filmfest">Short Film Festival</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board" data-in>
+          <svg viewBox="0 0 900 1225" role="img" aria-label="Festival poster: an indigenous warrior and a conquistador on cliffs. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-filmfest" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="1225"><circle class="rv" cx="450" cy="551" r="0" data-r="814" fill="#fff"/></mask></defs>
+            <image href="sketches/filmfest-3-640.webp" width="900" height="1225" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/filmfest-3-640.webp" data-full="../../assets/work/filmfest-3.webp" width="900" height="1225" preserveAspectRatio="xMidYMid slice" mask="url(#rv-filmfest)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          <blockquote class="cline"><p lang="es">“Mejor en... decirlo corto.”</p><footer>Better to say it short.</footer></blockquote>
+          <p class="body">The visual campaign for El Heraldo's short film festival, built on one line, “Mejor en... decirlo corto”, and carried from posters into print spreads.</p>
+          <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Illustration, advertising</dd></dl>
+          <a class="more" href="https://www.behance.net/gallery/128972361/El-Heraldo-Short-Film-Festival-Visual-Campaign">View on Behance<span class="sr"> (Short Film Festival)</span></a>
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from Short Film Festival" tabindex="0">
+          <li data-in><img src="../../assets/work/filmfest-1.webp" width="900" height="1225" srcset="../../assets/work/filmfest-1-640.webp 640w, ../../assets/work/filmfest-1.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Festival poster: cartoon characters under a spotlight on black"></li>
+          <li data-in><img src="../../assets/work/filmfest-2.webp" width="900" height="921" srcset="../../assets/work/filmfest-2-640.webp 640w, ../../assets/work/filmfest-2.webp 900w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Magazine spread mock-up: 'Explore new ideas'"></li>
+      </ul>
+    </article>
+    <article class="case" aria-labelledby="h-h2box">
+      <header class="case-head">
+        <span class="num" aria-hidden="true">07</span>
+        <div><p class="client"><span class="sr">Project 07, </span>H2Ocean × Sink or Swim Studio</p><h3 id="h-h2box">Tattoo aftercare kit box</h3></div>
+      </header>
+      <div class="case-body">
+        <figure class="board" data-in>
+          <svg viewBox="0 0 773 1126" role="img" aria-label="Front panel: H2Ocean logo, 'Antibacterial Tattoo Aftercare Kit' in condensed caps over a sea turtle swimming above the Aquatat tube and Blue Green Foam Soap. Shown first as a pencil sketch, then as the finished piece.">
+            <defs><mask id="rv-h2box" maskUnits="userSpaceOnUse" x="0" y="0" width="773" height="1126"><circle class="rv" cx="464" cy="586" r="0" data-r="751" fill="#fff"/></mask></defs>
+            <image href="sketches/h2box-front-640.webp" width="773" height="1126" preserveAspectRatio="xMidYMid slice"/>
+            <image class="fin" href="../../assets/work/h2box-front.webp" data-full="../../assets/work/h2box-front.webp" width="773" height="1126" preserveAspectRatio="xMidYMid slice" mask="url(#rv-h2box)"/>
+          </svg>
+          <figcaption class="steps" aria-hidden="true"><span class="s1">Idea</span><span class="s2">Line</span><span class="s3">Picture</span></figcaption>
+        </figure>
+        <div class="notes">
+          
+          <p class="body">Retail box for a co-branded antibacterial aftercare kit: one turtle-blue window to carry the shelf, a black crown for the studio mark, and every side panel doing its job, from how-to steps to drug facts.</p>
+          <dl><dt>Field</dt><dd>Packaging, print production</dd><dt>Year</dt><dd>2024</dd></dl>
+          
+        </div>
+      </div>
+      <ul class="strip" aria-label="More from Tattoo aftercare kit box" tabindex="0">
+          <li data-in><img src="../../assets/work/h2box-flat.webp" width="1622" height="1756" srcset="../../assets/work/h2box-flat-640.webp 640w, ../../assets/work/h2box-flat.webp 1622w" sizes="(max-width: 767px) 60vw, 22vw" loading="lazy" decoding="async" alt="Flat dieline of the H2Ocean Antibacterial Tattoo Aftercare Kit box: black top with the Sink or Swim Studio badge, a sea-turtle photo window with the two products, and side panels with instructions and product facts"></li>
+          <li data-in><img src="../../assets/work/h2box-detail.webp" width="477" height="768" loading="lazy" decoding="async" alt="Detail of the photo window: the sea turtle, the two products and the artist signature"></li>
+      </ul>
+    </article>
     </div>
-
-    <!-- 01 La Montañita -->
-    <article class="case case-ink" id="montanita" aria-labelledby="c1-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">01</p>
-          <div class="titles">
-            <p class="client label">El Heraldo</p>
-            <h3 id="c1-t" class="display">La Monta&ntilde;ita fire, special edition</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Editorial, advertising</dd></dl>
-            <a class="more" href="https://www.behance.net/gallery/129200693/El-Heraldo-Special-Edition-La-Montanita-Fire-Incident">View on Behance<span class="sr">: La Monta&ntilde;ita fire special edition</span></a>
-          </div>
-        </header>
-
-        <div class="story">
-          <figure class="board board-tall" data-sketch="sketches/montanita-4.webp" data-sketch-small="sketches/montanita-4-640.webp" data-focus="56 64">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 900 / 1225">
-                <div class="art"><img class="final" src="../../assets/work/montanita-4.webp" srcset="../../assets/work/montanita-4-640.webp 640w, ../../assets/work/montanita-4.webp 900w" sizes="(max-width: 1023px) 52vw, 39vw" width="900" height="1225" loading="lazy" alt="Key visual: a firefighter in profile against smoke and flames, quote &lsquo;Escuch&eacute; el crujir de las llamas que se acercaban&rsquo;"></div>
-                <span class="spot" id="m-face" data-mark="loop" data-beat="1" style="--x: 55%; --y: 66%; --w: 38%; --h: 21%"></span>
-                <span class="spot" id="m-quote" data-mark="under" data-beat="2" style="--x: 51%; --y: 38.5%; --w: 52%"></span>
-                <span class="spot" id="m-tag" data-mark="loop" data-beat="3" data-keep style="--x: 87%; --y: 7.5%; --w: 27%; --h: 8%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="m-face" style="--top: 62%">Tell it through one man</li>
-                <li class="note" data-beat="2" data-to="m-quote" style="--top: 30%">His words, in quotes</li>
-                <li class="note" data-beat="3" data-to="m-tag" style="--top: 4%">Launch flag: &iexcl;Busca hoy!</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>Tell El Heraldo&rsquo;s special edition through one firefighter, Ever Vel&aacute;squez, a year after the fire.</p>
-              <img class="rough" src="sketches/montanita-4-640.webp" width="640" height="871" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line" lang="es">&ldquo;Escuch&eacute; el crujir de las llamas que se acercaban&rdquo;</p>
-              <p class="gloss">&ldquo;I heard the crackle of the flames closing in.&rdquo;</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>Two teasers set the date, then three key visuals sent readers to the exclusive interview.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-row5 annotated">
-          <figure><img src="../../assets/work/montanita-1.webp" srcset="../../assets/work/montanita-1-640.webp 640w, ../../assets/work/montanita-1.webp 900w" sizes="(max-width: 767px) 64vw, (max-width: 1023px) 40vw, 18vw" width="900" height="1225" loading="lazy" alt="Teaser: firefighter jackets and a helmet hanging under a red light, &lsquo;Un llamado de auxilio que jam&aacute;s se olvidar&aacute;&rsquo;"></figure>
-          <figure><img src="../../assets/work/montanita-2.webp" srcset="../../assets/work/montanita-2-640.webp 640w, ../../assets/work/montanita-2.webp 900w" sizes="(max-width: 767px) 64vw, (max-width: 1023px) 40vw, 18vw" width="900" height="1225" loading="lazy" alt="Teaser: a scorched helmet on ash, &lsquo;Grandeza humana que el fuego no extingui&oacute;&rsquo;"></figure>
-          <figure><img src="../../assets/work/montanita-3.webp" srcset="../../assets/work/montanita-3-640.webp 640w, ../../assets/work/montanita-3.webp 900w" sizes="(max-width: 767px) 64vw, (max-width: 1023px) 40vw, 18vw" width="900" height="1225" loading="lazy" alt="Key visual: a firefighter silhouetted against a wall of fire, &lsquo;De entre las llamas renaci&oacute; un h&eacute;roe&rsquo;"></figure>
-          <figure><img src="../../assets/work/montanita-4.webp" srcset="../../assets/work/montanita-4-640.webp 640w, ../../assets/work/montanita-4.webp 900w" sizes="(max-width: 767px) 64vw, (max-width: 1023px) 40vw, 18vw" width="900" height="1225" loading="lazy" alt="Key visual: a firefighter in profile against smoke and flames, &lsquo;Escuch&eacute; el crujir de las llamas que se acercaban&rsquo;"></figure>
-          <figure><img src="../../assets/work/montanita-5.webp" srcset="../../assets/work/montanita-5-640.webp 640w, ../../assets/work/montanita-5.webp 900w" sizes="(max-width: 767px) 64vw, (max-width: 1023px) 40vw, 18vw" width="900" height="1225" loading="lazy" alt="Key visual: hands holding up a helmet in front of flames, &lsquo;Me vi al espejo y no reconoc&iacute; a ese hombre&rsquo;"></figure>
-          <p class="note bracket" data-span="1 2">Teasers: <span lang="es">&ldquo;Descubre la historia a partir del 25 de marzo&rdquo;</span></p>
-          <p class="note bracket" data-span="3 5">Launch: <span lang="es">&ldquo;&iexcl;Busca hoy!&rdquo;</span>, exclusive interview</p>
-        </div>
-        <p class="swipe label" aria-hidden="true">Swipe for all five posters</p>
-      </div>
-    </article>
-
-    <!-- 02 Dengue -->
-    <article class="case" id="dengue" aria-labelledby="c2-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">02</p>
-          <div class="titles">
-            <p class="client label">El Heraldo</p>
-            <h3 id="c2-t" class="display">The mosquito is not your friend</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Illustration, advertising</dd></dl>
-            <a class="more" href="https://www.behance.net/gallery/128972301/Dengue-Awareness-Campaign-El-Heraldo">View on Behance<span class="sr">: dengue awareness campaign</span></a>
-          </div>
-        </header>
-
-        <div class="story story-flip">
-          <figure class="board board-tall" data-sketch="sketches/dengue-2.webp" data-sketch-small="sketches/dengue-2-640.webp" data-focus="56 34">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 900 / 1225">
-                <div class="art"><img class="final" src="../../assets/work/dengue-2.webp" srcset="../../assets/work/dengue-2-640.webp 640w, ../../assets/work/dengue-2.webp 900w" sizes="(max-width: 1023px) 52vw, 39vw" width="900" height="1225" loading="lazy" alt="Illustrated poster: a young man shares pizza with a mosquito on the sofa, chat bubbles above; tip: throw out anything that can collect water"></div>
-                <span class="spot" id="d-bug" data-mark="loop" data-beat="1" style="--x: 57%; --y: 37%; --w: 32%; --h: 34%"></span>
-                <span class="spot" id="d-chat" data-mark="under" data-beat="2" style="--x: 75.5%; --y: 15%; --w: 36%"></span>
-                <span class="spot" id="d-tip" data-mark="under" data-beat="3" data-keep style="--x: 36%; --y: 90%; --w: 62%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="d-bug" style="--top: 40%">Cast the mosquito as a friend</li>
-                <li class="note" data-beat="2" data-to="d-chat" style="--top: 9%">Written as a chat</li>
-                <li class="note" data-beat="3" data-to="d-tip" style="--top: 80%">One prevention tip per poster</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>Make the dengue mosquito the friend you need to drop.</p>
-              <img class="rough" src="sketches/dengue-2-640.webp" width="640" height="871" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line" lang="es">&ldquo;Por m&iacute; no tienes que limpiar, soy de confianza&rdquo;</p>
-              <p class="gloss">&ldquo;Don&rsquo;t clean up on my account, I&rsquo;m practically family.&rdquo;</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>Three illustrated posters, one prevention tip each. It is his most-viewed project on Behance.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-stagger annotated">
-          <figure><img src="../../assets/work/dengue-1.webp" srcset="../../assets/work/dengue-1-640.webp 640w, ../../assets/work/dengue-1.webp 900w" sizes="(max-width: 767px) 48vw, 30vw" width="900" height="1225" loading="lazy" alt="A woman takes a selfie with a giant mosquito; tip: empty standing water from buckets and plant pots every week"></figure>
-          <figure><img src="../../assets/work/dengue-2.webp" srcset="../../assets/work/dengue-2-640.webp 640w, ../../assets/work/dengue-2.webp 900w" sizes="(max-width: 767px) 48vw, 30vw" width="900" height="1225" loading="lazy" alt="A young man shares pizza with a mosquito on the sofa; tip: throw out anything that can collect water"></figure>
-          <figure><img src="../../assets/work/dengue-3.webp" srcset="../../assets/work/dengue-3-640.webp 640w, ../../assets/work/dengue-3.webp 900w" sizes="(max-width: 767px) 48vw, 30vw" width="900" height="1225" loading="lazy" alt="A man and a mosquito by a stack of old tyres; tip: don't let water collect in tyres and containers"></figure>
-          <p class="note pointer" data-to="1 2 3" data-at="34 88">Three everyday scenes, three places water collects</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- 03 Estilo -->
-    <article class="case" id="estilo" aria-labelledby="c3-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">03</p>
-          <div class="titles">
-            <p class="client label">Estilo magazine</p>
-            <h3 id="c3-t" class="display">Breast self-exam campaign</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Photography, advertising</dd></dl>
-            <a class="more" href="https://www.behance.net/gallery/128972207/Estilo-Magazine-Breast-Cancer-Visual-Campaign">View on Behance<span class="sr">: breast self-exam campaign</span></a>
-          </div>
-        </header>
-
-        <div class="story">
-          <figure class="board board-tall" data-sketch="sketches/estilo-1.webp" data-sketch-small="sketches/estilo-1-640.webp" data-focus="50 52">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 800 / 965">
-                <div class="art"><img class="final" src="../../assets/work/estilo-1.webp" sizes="(max-width: 1023px) 52vw, 39vw" width="800" height="965" loading="lazy" alt="Pink duotone hand on cyan, hand-lettered &lsquo;&iquest;Qui&eacute;n sabe c&oacute;mo?&rsquo;"></div>
-                <span class="spot" id="e-hand" data-mark="loop" data-beat="1" style="--x: 50%; --y: 58%; --w: 54%; --h: 40%"></span>
-                <span class="spot" id="e-q" data-mark="under" data-beat="2" style="--x: 48%; --y: 33%; --w: 42%"></span>
-                <span class="spot" id="e-sign" data-mark="loop" data-beat="3" data-keep style="--x: 72.5%; --y: 90%; --w: 32%; --h: 10%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="e-hand" style="--top: 52%">One hand, one gesture</li>
-                <li class="note" data-beat="2" data-to="e-q" style="--top: 18%">A hand-lettered question</li>
-                <li class="note" data-beat="3" data-to="e-sign" style="--top: 84%">Sign-off: <span lang="es">&ldquo;Te ense&ntilde;aremos a tocarte&rdquo;</span>, we&rsquo;ll show you how</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>Ask the questions women are unsure about, then answer them with a gesture.</p>
-              <img class="rough" src="sketches/estilo-1-640.webp" width="640" height="772" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line" lang="es">&ldquo;&iquest;Qui&eacute;n sabe c&oacute;mo?&rdquo;</p>
-              <p class="gloss">&ldquo;Who knows how?&rdquo;</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>Four duotone questions, then the answer drawn right on the body: <span lang="es">&ldquo;&iexcl;As&iacute; debes tocarte!&rdquo;</span>, this is how to check yourself.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-qa annotated">
-          <figure><img src="../../assets/work/estilo-1.webp" sizes="(max-width: 767px) 46vw, 22vw" width="800" height="965" loading="lazy" alt="Pink duotone hand, &lsquo;&iquest;Qui&eacute;n sabe c&oacute;mo?&rsquo;"></figure>
-          <figure><img src="../../assets/work/estilo-2.webp" sizes="(max-width: 767px) 46vw, 22vw" width="800" height="965" loading="lazy" alt="Teal duotone hand, &lsquo;&iquest;Qu&eacute; tan frecuente?&rsquo;"></figure>
-          <figure><img src="../../assets/work/estilo-3.webp" sizes="(max-width: 767px) 46vw, 22vw" width="800" height="965" loading="lazy" alt="Yellow duotone hand, &lsquo;&iquest;De qu&eacute; forma es correcto?&rsquo;"></figure>
-          <figure><img src="../../assets/work/estilo-4.webp" sizes="(max-width: 767px) 46vw, 22vw" width="800" height="965" loading="lazy" alt="Light blue duotone hand, &lsquo;&iquest;Es tan necesario?&rsquo;"></figure>
-          <figure class="answer"><img src="../../assets/work/estilo-5.webp" sizes="(max-width: 767px) 92vw, 34vw" width="800" height="965" loading="lazy" alt="Mint duotone woman with line-drawn hands, &lsquo;&iexcl;As&iacute; debes tocarte!&rsquo;"></figure>
-          <figure class="answer"><img src="../../assets/work/estilo-6.webp" sizes="(max-width: 767px) 92vw, 34vw" width="800" height="965" loading="lazy" alt="Yellow duotone woman with line-drawn hands, &lsquo;&iexcl;As&iacute; debes tocarte!&rsquo;"></figure>
-          <p class="note leap" data-from="1 4" data-to="5">Four questions, one answer</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- 04 Banpaís -->
-    <article class="case" id="banpais" aria-labelledby="c4-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">04</p>
-          <div class="titles">
-            <p class="client label">Banpa&iacute;s</p>
-            <h3 id="c4-t" class="display">Brand book 2019</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Field</dt><dd>Brand identity, guidelines</dd><dt>Year</dt><dd>2019</dd></dl>
-            <a class="more" href="https://www.behance.net/gallery/243927369/BrandBook-Banpais">View on Behance<span class="sr">: Banpa&iacute;s brand book</span></a>
-          </div>
-        </header>
-
-        <div class="story">
-          <figure class="board board-wide" data-sketch="sketches/banpais-2.webp" data-sketch-small="sketches/banpais-2-640.webp" data-focus="10 22">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 1400 / 787">
-                <div class="art"><img class="final" src="../../assets/work/banpais-2.webp" srcset="../../assets/work/banpais-2-640.webp 640w, ../../assets/work/banpais-2.webp 1400w" sizes="(max-width: 1023px) 92vw, 61vw" width="1400" height="787" loading="lazy" alt="Typography page: a blue bar forms the T of &lsquo;Tipograf&iacute;a&rsquo;, with the four values set in Mont"></div>
-                <span class="spot" id="b-t" data-mark="loop" data-beat="1" style="--x: 10%; --y: 24%; --w: 15%; --h: 30%"></span>
-                <span class="spot" id="b-values" data-mark="under" data-beat="2" style="--x: 39.5%; --y: 69%; --w: 32%"></span>
-                <span class="spot" id="b-gotham" data-mark="loop" data-beat="3" data-keep style="--x: 46.5%; --y: 47%; --w: 50%; --h: 17%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="b-t">The blue bar becomes the T</li>
-                <li class="note" data-beat="2" data-to="b-values">Four words for one typeface</li>
-                <li class="note" data-beat="3" data-to="b-gotham">Gotham out, Mont in: too many brands in the category used it</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>Give a national bank a system anyone can apply: the yellow-and-blue split, one type family and one rule for photos.</p>
-              <img class="rough" src="sketches/banpais-2-640.webp" width="640" height="360" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line" lang="es">Formalidad, fuerza, legibilidad, modernidad.</p>
-              <p class="gloss">&ldquo;Formality, strength, legibility, modernity.&rdquo; The four ideas the typeface has to carry.</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>The book sets the logo, the color split, the Mont type family, photo direction with a touch of yellow in every frame, and ad layouts.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-book annotated">
-          <figure><img src="../../assets/work/banpais-1.webp" srcset="../../assets/work/banpais-1-640.webp 640w, ../../assets/work/banpais-1.webp 1400w" sizes="(max-width: 767px) 100vw, 58vw" width="1400" height="787" loading="lazy" alt="Banpa&iacute;s brand book cover: the logo and &lsquo;Siempre de tu lado&rsquo; on bright yellow"></figure>
-          <figure><img src="../../assets/work/banpais-3.webp" srcset="../../assets/work/banpais-3-640.webp 640w, ../../assets/work/banpais-3.webp 1400w" sizes="(max-width: 767px) 50vw, 30vw" width="1400" height="787" loading="lazy" alt="Mont type family specimen page"></figure>
-          <figure><img src="../../assets/work/banpais-4.webp" srcset="../../assets/work/banpais-4-640.webp 640w, ../../assets/work/banpais-4.webp 1400w" sizes="(max-width: 767px) 50vw, 30vw" width="1400" height="787" loading="lazy" alt="Photography direction page: a couple at home, with a touch of yellow in the frame"></figure>
-          <figure><img src="../../assets/work/banpais-5.webp" srcset="../../assets/work/banpais-5-640.webp 640w, ../../assets/work/banpais-5.webp 1400w" sizes="(max-width: 767px) 100vw, 30vw" width="1400" height="788" loading="lazy" alt="Corporate version of an ad layout, with headline examples"></figure>
-          <p class="note pointer" data-to="3" data-at="40 68">A touch of yellow in every photo</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- 05 Buen Provecho -->
-    <article class="case" id="buen-provecho" aria-labelledby="c5-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">05</p>
-          <div class="titles">
-            <p class="client label">Buen Provecho magazine</p>
-            <h3 id="c5-t" class="display">Advertiser media kit</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Field</dt><dd>Branding, editorial, advertising</dd></dl>
-            <a class="more" href="https://www.behance.net/gallery/243961893/Buen-Provecho_Media-Kit">View on Behance<span class="sr">: Buen Provecho media kit</span></a>
-          </div>
-        </header>
-
-        <div class="story story-flip">
-          <figure class="board board-wide" data-sketch="sketches/buenprovecho-1.webp" data-sketch-small="sketches/buenprovecho-1-640.webp" data-focus="60 56">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 1400 / 778">
-                <div class="art"><img class="final" src="../../assets/work/buenprovecho-1.webp" srcset="../../assets/work/buenprovecho-1-640.webp 640w, ../../assets/work/buenprovecho-1.webp 1400w" sizes="(max-width: 1023px) 92vw, 61vw" width="1400" height="778" loading="lazy" alt="Media kit cover: &lsquo;Y le agregamos un punto m&aacute;s de sabor&rsquo;, the Buen Provecho masthead, a tablet and food on yellow wood"></div>
-                <span class="spot" id="p-tablet" data-mark="loop" data-beat="1" style="--x: 26%; --y: 86%; --w: 36%; --h: 30%"></span>
-                <span class="spot" id="p-line" data-mark="under" data-beat="2" style="--x: 30%; --y: 44%; --w: 30%"></span>
-                <span class="spot" id="p-mast" data-mark="loop" data-beat="3" data-keep style="--x: 60%; --y: 57%; --w: 52%; --h: 38%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="p-tablet">Print and tablet in one frame</li>
-                <li class="note" data-beat="2" data-to="p-line">Loose, hand-drawn lettering</li>
-                <li class="note" data-beat="3" data-to="p-mast">Masthead set big, on warm yellow wood</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>Sell a food magazine to advertisers with its own photography first, then back it up with the numbers.</p>
-              <img class="rough" src="sketches/buenprovecho-1-640.webp" width="640" height="356" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line" lang="es">Y le agregamos un punto m&aacute;s de sabor.</p>
-              <p class="gloss">&ldquo;And we added an extra dash of flavor.&rdquo;</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>Editorial mix, sections and circulation, 25,000 copies nationwide, set in a warm, textured system.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-spread annotated">
-          <figure><img src="../../assets/work/buenprovecho-2.webp" srcset="../../assets/work/buenprovecho-2-640.webp 640w, ../../assets/work/buenprovecho-2.webp 1400w" sizes="100vw" width="1400" height="778" loading="lazy" alt="Editorial breakdown page: 65% recipes"></figure>
-          <figure><img src="../../assets/work/buenprovecho-3.webp" srcset="../../assets/work/buenprovecho-3-640.webp 640w, ../../assets/work/buenprovecho-3.webp 1400w" sizes="(max-width: 767px) 100vw, 50vw" width="1400" height="778" loading="lazy" alt="Dessert section page, &lsquo;Pecado no comerlo&rsquo;"></figure>
-          <figure><img src="../../assets/work/buenprovecho-4.webp" srcset="../../assets/work/buenprovecho-4-640.webp 640w, ../../assets/work/buenprovecho-4.webp 1400w" sizes="(max-width: 767px) 100vw, 50vw" width="1400" height="778" loading="lazy" alt="Circulation page: 25,000 copies nationwide"></figure>
-          <p class="note pointer" data-to="3" data-at="25 62">25,000 copies, nationwide</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- 06 Short Film Festival -->
-    <article class="case" id="film-festival" aria-labelledby="c6-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">06</p>
-          <div class="titles">
-            <p class="client label">El Heraldo</p>
-            <h3 id="c6-t" class="display">Short Film Festival</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Role</dt><dd>Idea, concept, creative direction, copy</dd><dt>Field</dt><dd>Illustration, advertising</dd></dl>
-            <a class="more" href="https://www.behance.net/gallery/128972361/El-Heraldo-Short-Film-Festival-Visual-Campaign">View on Behance<span class="sr">: Short Film Festival campaign</span></a>
-          </div>
-        </header>
-
-        <div class="story">
-          <figure class="board board-tall" data-sketch="sketches/filmfest-3.webp" data-sketch-small="sketches/filmfest-3-640.webp" data-focus="50 45">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 900 / 1225">
-                <div class="art"><img class="final" src="../../assets/work/filmfest-3.webp" srcset="../../assets/work/filmfest-3-640.webp 640w, ../../assets/work/filmfest-3.webp 900w" sizes="(max-width: 1023px) 52vw, 39vw" width="900" height="1225" loading="lazy" alt="Festival poster: an indigenous warrior and a conquistador on facing cliffs, &lsquo;Mejor en&hellip; decirlo corto&rsquo;, with fold lines down the middle"></div>
-                <span class="spot" id="f-fold" data-mark="loop" data-beat="1" style="--x: 58.5%; --y: 22%; --w: 27%; --h: 19%"></span>
-                <span class="spot" id="f-left" data-mark="under" data-beat="2" style="--x: 22.5%; --y: 30.5%; --w: 24%"></span>
-                <span class="spot" id="f-right" data-mark="under" data-beat="2" style="--x: 80.5%; --y: 30.5%; --w: 27%"></span>
-                <span class="spot" id="f-mid" data-mark="point" data-beat="3" style="--x: 58.5%; --y: 52%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="f-fold" style="--top: 14%"><span lang="es">&ldquo;Doble aqu&iacute;&rdquo;</span>: fold here</li>
-                <li class="note" data-beat="2" data-to="f-left f-right" style="--top: 33%">The line breaks at the fold</li>
-                <li class="note" data-beat="3" data-to="f-mid" style="--top: 56%">Fold it, and the poster gets shorter</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>Make the poster itself short: fold lines marked <span lang="es">&ldquo;doble aqu&iacute;&rdquo;</span>, fold here, run down the middle.</p>
-              <img class="rough" src="sketches/filmfest-3-640.webp" width="640" height="871" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line" lang="es">Mejor en&hellip; decirlo corto.</p>
-              <p class="gloss">&ldquo;Better&hellip; said short.&rdquo;</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>One poster per category, from fiction to documentary, carried into print spreads for the festival that rewards being brief.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-film annotated">
-          <figure><img src="../../assets/work/filmfest-1.webp" srcset="../../assets/work/filmfest-1-640.webp 640w, ../../assets/work/filmfest-1.webp 900w" sizes="(max-width: 767px) 44vw, 26vw" width="900" height="1225" loading="lazy" alt="Festival poster: cartoon characters under street lamps, the line split by the same fold lines"></figure>
-          <figure><img src="../../assets/work/filmfest-2.webp" srcset="../../assets/work/filmfest-2-640.webp 640w, ../../assets/work/filmfest-2.webp 900w" sizes="(max-width: 767px) 100vw, 50vw" width="900" height="921" loading="lazy" alt="Magazine spread mock-up: &lsquo;Explore new ideas&rsquo; beside the festival poster"></figure>
-          <p class="note pointer" data-to="1" data-at="58 40">Same fold, every category</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- 07 H2Ocean box -->
-    <article class="case" id="h2ocean-box" aria-labelledby="c7-t">
-      <div class="wrap">
-        <header class="case-head">
-          <p class="num" aria-hidden="true">07</p>
-          <div class="titles">
-            <p class="client label">H2Ocean &times; Sink or Swim Studio</p>
-            <h3 id="c7-t" class="display">Tattoo aftercare kit box</h3>
-          </div>
-          <div class="meta">
-            <dl><dt>Field</dt><dd>Packaging, print production</dd></dl>
-          </div>
-        </header>
-
-        <div class="story story-flip">
-          <figure class="board board-tall" data-sketch="sketches/h2box-front.webp" data-sketch-small="sketches/h2box-front-640.webp" data-focus="60 52">
-            <div class="mini" aria-hidden="true"><span><i><b></b></i>Idea</span><span><i><b></b></i>Line</span><span><i><b></b></i>Picture</span></div>
-            <div class="stage">
-              <div class="sheet" style="--ar: 773 / 1126">
-                <div class="art"><img class="final" src="../../assets/work/h2box-front.webp" sizes="(max-width: 1023px) 52vw, 39vw" width="773" height="1126" loading="lazy" alt="Front panel: the H2Ocean logo and &lsquo;Antibacterial Tattoo Aftercare Kit&rsquo; over a sea turtle and the two products"></div>
-                <span class="spot" id="h-turtle" data-mark="loop" data-beat="1" style="--x: 60%; --y: 53%; --w: 42%; --h: 36%"></span>
-                <span class="spot" id="h-name" data-mark="under" data-beat="2" style="--x: 68%; --y: 38.5%; --w: 40%"></span>
-                <span class="spot" id="h-crown" data-mark="loop" data-beat="3" data-keep style="--x: 69%; --y: 4%; --w: 42%; --h: 7%"></span>
-              </div>
-              <ul class="notes">
-                <li class="note" data-beat="1" data-to="h-turtle" style="--top: 52%">One turtle-blue window carries the shelf</li>
-                <li class="note" data-beat="2" data-to="h-name" style="--top: 30%">Name first, in condensed caps</li>
-                <li class="note" data-beat="3" data-to="h-crown" style="--top: 2%">Black crown for the studio mark</li>
-              </ul>
-            </div>
-          </figure>
-          <div class="beats">
-            <div class="beat" data-beat="1">
-              <p class="label beat-label"><span>01</span> The idea</p>
-              <p>One turtle-blue window to carry the shelf, and a black crown for the tattoo studio&rsquo;s mark.</p>
-              <img class="rough" src="sketches/h2box-front-640.webp" width="640" height="932" alt="" loading="lazy">
-            </div>
-            <div class="beat" data-beat="2">
-              <p class="label beat-label"><span>02</span> The line</p>
-              <p class="line">Antibacterial Tattoo Aftercare Kit</p>
-              <p class="gloss">The side panel backs it with one claim: &ldquo;Heals 2x brighter, 2x faster.&rdquo;</p>
-            </div>
-            <div class="beat" data-beat="3">
-              <p class="label beat-label"><span>03</span> The picture</p>
-              <p>A print-ready dieline where every panel does a job, from how-to steps to ingredients and product facts.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="series s-proof annotated">
-          <figure class="proof"><img src="../../assets/work/h2box-flat.webp" srcset="../../assets/work/h2box-flat-640.webp 640w, ../../assets/work/h2box-flat.webp 1622w" sizes="(max-width: 767px) 100vw, 56vw" width="1622" height="1756" loading="lazy" alt="Flat dieline of the box: black crown with the Sink or Swim Studio badge, the turtle window, and side panels with how-to steps and product facts"><figcaption class="label">Dieline, print-ready artwork</figcaption></figure>
-          <figure><img src="../../assets/work/h2box-detail.webp" sizes="(max-width: 767px) 56vw, 22vw" width="477" height="768" loading="lazy" alt="Detail of the window: the sea turtle, the two products and the artist&rsquo;s signature"><figcaption class="label">Window detail</figcaption></figure>
-          <p class="note pointer" data-to="1" data-at="14 52">Every panel has a job: how-to, ingredients, facts</p>
-        </div>
-      </div>
-    </article>
   </section>
 
-  <section class="more-work wrap" aria-labelledby="more-h">
-    <div class="sec-head">
-      <h2 id="more-h" class="display">More work</h2>
-      <a class="label all" href="https://www.behance.net/randuray">All 24 projects on Behance</a>
-    </div>
-    <ul class="tiles">
-      <li class="wide"><a class="tile" href="https://www.behance.net/gallery/243962705/Media-Kit-Revista-E-N-Campana"><span class="img"><img src="../../assets/work/en-1.webp" srcset="../../assets/work/en-1-640.webp 640w, ../../assets/work/en-1.webp 1400w" sizes="(max-width: 767px) 100vw, 50vw" width="1400" height="788" loading="lazy" alt=""></span><span class="cap"><b>E&amp;N magazine media kit</b><span>Art direction, branding</span></span></a></li>
-      <li><a class="tile" href="https://www.behance.net/gallery/129253535/Estilo-Magazine-Pink-Party-Key-Visual"><span class="img"><img src="../../assets/work/pinkparty-2.webp" srcset="../../assets/work/pinkparty-2-640.webp 640w, ../../assets/work/pinkparty-2.webp 900w" sizes="(max-width: 1023px) 50vw, 25vw" width="900" height="1225" loading="lazy" alt=""></span><span class="cap"><b>Estilo Pink Party key visual</b><span>Idea, concept, creative direction, copy. 2019</span></span></a></li>
-      <li><a class="tile" href="https://www.behance.net/gallery/243962365/Presentacion-Limonada-Rosa"><span class="img"><img src="../../assets/work/leyde-2.webp" srcset="../../assets/work/leyde-2-640.webp 640w, ../../assets/work/leyde-2.webp 1400w" sizes="(max-width: 1023px) 50vw, 25vw" width="1400" height="788" loading="lazy" alt=""></span><span class="cap"><b>Leyde Limonada Rosa pitch</b><span>Havas El Clan</span></span></a></li>
-      <li><a class="tile" href="https://www.behance.net/gallery/172168681/H2OCean-Webpage-Campaign"><span class="img"><img src="../../assets/work/h2ocean-4.webp" srcset="../../assets/work/h2ocean-4-640.webp 640w, ../../assets/work/h2ocean-4.webp 808w" sizes="(max-width: 1023px) 50vw, 25vw" width="808" height="632" loading="lazy" alt=""></span><span class="cap"><b>H2Ocean web campaign</b><span>In-house, 2023</span></span></a></li>
-      <li><a class="tile" href="https://www.behance.net/gallery/129185737/Branding-Website-QuieroCasahn"><span class="img"><img src="../../assets/work/quierocasa-1.webp" srcset="../../assets/work/quierocasa-1-640.webp 640w, ../../assets/work/quierocasa-1.webp 808w" sizes="(max-width: 1023px) 50vw, 25vw" width="808" height="632" loading="lazy" alt=""></span><span class="cap"><b>QuieroCasa.hn identity</b><span>Logo, brand guide, website</span></span></a></li>
-      <li><a class="tile" href="https://www.behance.net/gallery/129188437/USAP-Anual-Campaign-The-Power-Is-Yours"><span class="img"><img src="../../assets/work/usap-1.webp" srcset="../../assets/work/usap-1-640.webp 640w, ../../assets/work/usap-1.webp 808w" sizes="(max-width: 1023px) 50vw, 25vw" width="808" height="632" loading="lazy" alt=""></span><span class="cap"><b>USAP annual campaigns</b><span>Idea, concept, creative direction, copy</span></span></a></li>
-      <li class="wide"><a class="tile" href="https://www.behance.net/gallery/172170439/H2Ocean-Earth-Day-Post"><span class="img"><img src="../../assets/work/h2ocean-2.webp" srcset="../../assets/work/h2ocean-2-640.webp 640w, ../../assets/work/h2ocean-2.webp 808w" sizes="(max-width: 767px) 100vw, 50vw" width="808" height="632" loading="lazy" alt=""></span><span class="cap"><b>H2Ocean Earth Day</b><span>Social content, 2023</span></span></a></li>
-      <li><a class="tile" href="https://www.behance.net/gallery/128971809/ZOCA-ZOCA-Logo-Proposal"><span class="img"><img src="../../assets/work/zoca-1.webp" srcset="../../assets/work/zoca-1-640.webp 640w, ../../assets/work/zoca-1.webp 808w" sizes="(max-width: 1023px) 50vw, 25vw" width="808" height="632" loading="lazy" alt=""></span><span class="cap"><b>ZOCA ZOCA logo proposal</b><span>Idea, concept, graphic design</span></span></a></li>
+  <section class="wrap morew" aria-labelledby="more-h">
+    <div class="sec-head"><h2 id="more-h">More work<svg class="under" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 16 C 80 6, 160 22, 240 12 S 360 8, 396 14" pathLength="1"/></svg></h2><a class="small" href="https://www.behance.net/randuray">All 24 projects on Behance</a></div>
+    <ul class="more-grid">
+      <li data-in><a href="https://www.behance.net/gallery/243962705/Media-Kit-Revista-E-N-Campana"><img src="../../assets/work/en-1-640.webp" width="640" height="360" loading="lazy" decoding="async" alt=""><b>E&amp;N magazine media kit</b><span>Art direction, branding</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/129253535/Estilo-Magazine-Pink-Party-Key-Visual"><img src="../../assets/work/pinkparty-2-640.webp" width="640" height="871" loading="lazy" decoding="async" alt=""><b>Estilo Pink Party key visual</b><span>Illustration, event, 2019</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/172168681/H2OCean-Webpage-Campaign"><img src="../../assets/work/h2ocean-4-640.webp" width="640" height="501" loading="lazy" decoding="async" alt=""><b>H2Ocean web campaign</b><span>In-house, 2023</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/243962365/Presentacion-Limonada-Rosa"><img src="../../assets/work/leyde-2-640.webp" width="640" height="360" loading="lazy" decoding="async" alt=""><b>Leyde Limonada Rosa pitch</b><span>Havas El Clan</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/172170439/H2Ocean-Earth-Day-Post"><img src="../../assets/work/h2ocean-2-640.webp" width="640" height="501" loading="lazy" decoding="async" alt=""><b>H2Ocean Earth Day</b><span>Social content, 2023</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/129185737/Branding-Website-QuieroCasahn"><img src="../../assets/work/quierocasa-1-640.webp" width="640" height="501" loading="lazy" decoding="async" alt=""><b>QuieroCasa.hn identity</b><span>Logo, brand guide, website</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/129188437/USAP-Anual-Campaign-The-Power-Is-Yours"><img src="../../assets/work/usap-1-640.webp" width="640" height="501" loading="lazy" decoding="async" alt=""><b>USAP annual campaigns</b><span>Creative direction, film</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/172174419/H2Ocean-Mothers-Day-Social-Media-Salute"><img src="../../assets/work/h2ocean-1-640.webp" width="640" height="501" loading="lazy" decoding="async" alt=""><b>H2Ocean Mother's Day</b><span>Product, social, 2023</span></a></li>
+      <li data-in><a href="https://www.behance.net/gallery/128971809/ZOCA-ZOCA-Logo-Proposal"><img src="../../assets/work/zoca-1-640.webp" width="640" height="501" loading="lazy" decoding="async" alt=""><b>ZOCA ZOCA logo proposal</b><span>Identity</span></a></li>
     </ul>
   </section>
 
-  <section class="experience wrap" id="experience" aria-labelledby="xp-h">
-    <div class="sec-head">
-      <h2 id="xp-h" class="display">Experience</h2>
-      <p class="label">2006 to now</p>
-    </div>
+  <section class="wrap xpw" id="experience" aria-labelledby="xp-h">
+    <div class="sec-head"><h2 id="xp-h">Experience<svg class="under" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 16 C 80 6, 160 22, 240 12 S 360 8, 396 14" pathLength="1"/></svg></h2><p class="small">2006 to now</p></div>
     <ol class="xp">
-      <li><span class="yrs">2023 to now</span><span class="role">Senior Graphic Designer &amp; Content Creator</span><span class="org"><b>H2Ocean</b>, Stuart, FL</span><span class="did">Packaging, catalogs, photography, video, web and social for 30+ products.</span></li>
-      <li><span class="yrs">2022</span><span class="role">Brand Specialist &amp; Senior Content Creator</span><span class="org"><b>Bug Bite Thing</b>, Port St. Lucie, FL</span><span class="did">Built the brand book from scratch; social, Amazon and Google Ads creative.</span></li>
-      <li><span class="yrs">2017 to 2021</span><span class="role">Creative Director Manager</span><span class="org"><b>Havas El Clan</b>, San Pedro Sula</span><span class="did">360&deg; campaigns across TV, digital, print and PR; led the creative, digital and production teams.</span></li>
-      <li><span class="yrs">2014 to 2017</span><span class="role">Founder, CEO &amp; Creative Director</span><span class="org"><b>IDEAS Ad Agency</b>, San Pedro Sula</span><span class="did">Built an eight-person full-service agency and won a pitch against Ogilvy and McCann Erickson.</span></li>
-      <li><span class="yrs">2012 to 2014</span><span class="role">Creative Director</span><span class="org"><b>DIUNSA</b>, San Pedro Sula</span><span class="did">Built and ran an eight-person in-house team on national campaigns tied to sales.</span></li>
-      <li><span class="yrs">2006 to 2012</span><span class="role">Senior Creative</span><span class="org"><b>McCann Worldgroup</b>, San Pedro Sula</span><span class="did">360&deg; campaigns for major accounts, leading a team of four.</span></li>
+      <li><span class="yrs">2023 to now</span><span class="role">Senior Graphic Designer &amp; Content Creator</span><span class="org"><b>H2Ocean</b>, Stuart, FL</span></li>
+      <li><span class="yrs">2022</span><span class="role">Brand Specialist &amp; Senior Content Creator</span><span class="org"><b>Bug Bite Thing</b>, Port St. Lucie, FL</span></li>
+      <li><span class="yrs">2017 to 2021</span><span class="role">Creative Director</span><span class="org"><b>Havas El Clan</b>, San Pedro Sula</span></li>
+      <li><span class="yrs">2014 to 2017</span><span class="role">Founder &amp; Creative Director</span><span class="org"><b>IDEAS Ad Agency</b>, San Pedro Sula</span></li>
+      <li><span class="yrs">2012 to 2014</span><span class="role">Creative Director</span><span class="org"><b>DIUNSA</b>, San Pedro Sula</span></li>
+      <li><span class="yrs">2006 to 2012</span><span class="role">Senior Creative</span><span class="org"><b>McCann Worldgroup</b>, San Pedro Sula</span></li>
     </ol>
-    <div class="awards">
-      <p class="label">Recognition</p>
-      <p><span class="mark-award">Bronze, Jade Awards</span> (Festival de Antigua), non-alcoholic beverage campaign at McCann. Nominee, National Advertising Awards, Honduras, at Havas El Clan.</p>
-      <p class="label">Education</p>
-      <p>Associate degree in graphic design, INFOP, San Pedro Sula.</p>
-    </div>
+    <p class="awards"><b>Recognition.</b> Bronze, Jade Awards (Festival de Antigua), beverage campaign at McCann. Nominee, National Advertising Awards, Honduras, at Havas. His agency IDEAS won a pitch against Ogilvy and McCann.</p>
   </section>
 
-  <section class="about wrap" id="about" aria-labelledby="about-h">
-    <div class="sec-head">
-      <h2 id="about-h" class="display">About</h2>
-    </div>
-    <div class="about-body">
-      <p class="lede">I&rsquo;ve led creative departments at agencies and in-house, and I still like making the work myself: the concept and the copy, the photography, the edit and the final file.</p>
-      <div class="bilingual">
-        <p class="line" lang="es">Trabajo en espa&ntilde;ol y en ingl&eacute;s.</p>
-        <p class="gloss">&ldquo;I work in Spanish and English.&rdquo;</p>
-      </div>
-      <ul class="facts label">
-        <li>Creative &amp; art direction</li><li>Brand identity systems</li><li>Packaging</li><li>ATL, BTL &amp; 360&deg; campaigns</li><li>Photography &amp; video</li><li>Motion graphics</li><li>Social, Amazon &amp; Meta creative</li><li>Adobe Creative Suite</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="contact" id="contact" aria-labelledby="contact-h">
-    <div class="wrap">
-      <h2 id="contact-h" class="label">Contact</h2>
-      <a class="mail" href="mailto:robertoanduray1980@gmail.com">robertoanduray1980@gmail.com</a>
-      <ul class="links">
-        <li><a href="../../assets/Roberto-Anduray-CV.pdf" download>Download CV (PDF)</a></li>
-        <li><a href="https://www.behance.net/randuray">Behance</a></li>
-      </ul>
+  <section class="wrap aboutw" id="about" aria-labelledby="about-h">
+    <div class="sec-head"><h2 id="about-h">About<svg class="under" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 16 C 80 6, 160 22, 240 12 S 360 8, 396 14" pathLength="1"/></svg></h2></div>
+    <div class="about-grid">
+      <p class="big">I've run creative departments at agencies and in-house, and I still like making the work myself: the concept and the copy, the photo, the edit and the final file.</p>
+      <p class="big">Husband, father of twin girls, and happiest when a project is a little bit of an adrenaline ride. I work in English and Spanish.</p>
+      <p class="skills"><b>Tools.</b> Adobe Creative Suite, Photography &amp; video, Motion graphics, Brand systems, Social &amp; Amazon creative.</p>
     </div>
   </section>
 </main>
-
-<footer class="foot">
-  <div class="wrap"><span>Roberto Anduray, Port St. Lucie, Florida</span><span>&copy; 2026</span></div>
+<footer class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <h2 id="contact-h">Have an idea? I'll find the line and make the picture.</h2>
+    <a class="mail" href="mailto:robertoanduray1980@gmail.com">robertoanduray1980@gmail.com</a>
+    <p class="links"><a href="../../assets/Roberto-Anduray-CV.pdf" download>Download CV (PDF)</a><a href="https://www.behance.net/randuray">Behance</a></p>
+    <p class="foot"><span>Roberto Anduray, Port St. Lucie, Florida</span><span>© 2026</span></p>
+  </div>
 </footer>
 </body>
 </html>

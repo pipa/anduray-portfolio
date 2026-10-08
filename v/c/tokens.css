@@ -1,116 +1,54 @@
-/* Version C: Idea, line, picture. Design and motion tokens.
-   Every duration, easing, distance and scroll fraction lives here; main.js reads the motion ones. */
+/* Version C "Idea, line, picture": design + motion tokens. Change values here, never inline. */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 800; font-stretch: 62% 125%; font-display: swap; src: url(../../assets/fonts/archivo-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 :root {
-  /* colour */
+  /* colour: a sketchbook. ink on paper 17:1, graphite 9.2:1, muted 6.6:1, red pencil 5.6:1 */
   --paper: #F3F0E8;
-  --sheet: #FBF9F4;          /* drawing paper the sketches sit on */
+  --sheet: #FBF9F4;
   --ink: #151412;
-  --muted: #5C574E;          /* 6.3:1 on paper */
-  --muted-on-ink: #A39E93;   /* 6.9:1 on ink */
+  --graphite: #3B3730;
+  --muted: #5C574E;
   --rule: #D8D2C4;
-  --rule-on-ink: #34312C;
-  --accent: #B23516;         /* the red pencil: 5.4:1 on paper */
-  --accent-on-ink: #E2542E;  /* 4.9:1 on ink */
-  --graphite: #8A847A;       /* construction lines, decorative only */
+  --grid: rgba(21, 20, 18, 0.045);
+  --accent: #B23516;
+  --accent-on-ink: #E2542E;
+  --muted-on-ink: #A39E93;
 
   /* type */
   --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --display-wdth: 68;
-  --display-wght: 800;
-  --note-wdth: 72;
-  --note-wght: 600;
-  --size-name: clamp(56px, 9.6vw, 184px);
-  --size-hero-line: clamp(28px, 3.3vw, 60px);
-  --size-line: clamp(28px, 3vw, 52px);
-  --size-h2: clamp(40px, 6vw, 96px);
-  --size-h3: clamp(30px, 3.4vw, 54px);
-  --size-num: clamp(56px, 7vw, 128px);
-  --size-clients: clamp(24px, 2.6vw, 40px);
+  --size-name: clamp(64px, 9.6vw, 184px);
+  --size-h2: clamp(44px, 6.4vw, 120px);
+  --size-h3: clamp(32px, 3.4vw, 60px);
+  --size-line: clamp(30px, 3.6vw, 66px);
+  --size-big: clamp(22px, 2.2vw, 36px);
   --size-lede: clamp(18px, 1.45vw, 22px);
-  --size-body: 18px;
-  --size-small: 15px;
-  --size-note: 15px;
+  --size-body: 17px;
   --size-label: 12px;
-  --lh-display: 0.88;
-  --lh-body: 1.55;
-  --track-label: 0.08em;
 
   /* layout */
-  --max: 1440px;
-  --margin: clamp(20px, 4vw, 64px);
-  --gutter: 24px;
-  --header-h: 64px;
-  --section-gap: clamp(96px, 12vw, 200px);
-  --case-gap: clamp(88px, 10vw, 168px);
-  --board-pad: 4vh;          /* space above and below a sticky board */
-  --board-h: calc(100svh - var(--header-h) - 2 * var(--board-pad));
-  --note-w: 15rem;
-  --pencil-w: 1.75px;
-  --halo-w: 6px;
+  --max: 1600px;
+  --margin: clamp(20px, 4vw, 72px);
+  --gutter: clamp(16px, 2vw, 32px);
+  --header-h: 60px;
+  --grid-size: 24px;          /* sketchbook grid */
+  --section-gap: clamp(112px, 13vw, 220px);
+  --case-gap: clamp(112px, 14vw, 240px);
 
-  /* motion: easing */
-  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);     /* ease-out-expo */
-  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);  /* ease-out-quint */
-  --ease-move: cubic-bezier(0.76, 0, 0.24, 1);     /* ease-in-out-quart */
-
-  /* motion: durations */
-  --dur-feedback: 150ms;
-  --dur-hover: 200ms;
-  --dur-menu: 360ms;
-  --dur-reveal: 800ms;
-  --dur-draw: 900ms;         /* time-based pencil strokes: series notes, picks, awards */
-  --dur-caret: 1000ms;       /* one blink of the typing caret */
-
-  /* motion: stagger, delay, distance */
-  --stagger-reveal: 60ms;
-  --stagger-draw: 140ms;
-  --delay-draw: 350ms;       /* series notes start after the pictures land */
-  --scale-reveal: 1.03;
-  --scale-hover: 1.02;
-  --rise-menu: 12px;
-
-  /* hero cycle, per piece: sketch, then line, then picture, hold, fade */
-  --hero-sketch: 1800ms;
-  --hero-line: 1500ms;
-  --hero-picture: 1000ms;
-  --hero-hold: 2600ms;
-  --hero-out: 400ms;
-  --font-wait: 300ms;        /* longest wait for Archivo before the hero starts */
-
-  /* scroll-driven case boards */
-  --scrub-lerp: 0.14;        /* share of the remaining distance covered per 60 fps frame */
-  --beat-start: 0.86;        /* a beat starts when its top crosses this share of the viewport */
-  --beat-end: 0.34;          /* and is complete when its top reaches this share */
-  --scribble-share: 0.78;    /* part of the idea beat spent scribbling the sketch in */
-  --marks-from: 0.42;        /* idea and line marks start drawing at this point of their beat */
-  --type-share: 0.72;        /* part of the line beat spent typing */
-  --iris-share: 0.82;        /* part of the picture beat spent opening the poster */
-  --scribble-width: 0.26;    /* scribble stroke as a share of the sheet's longer side */
-}
-
-@media (max-width: 1023px) {
-  :root {
-    --size-name: 13vw;
-    --size-hero-line: clamp(28px, 4.6vw, 40px);
-    --board-h: 52svh;
-    --beat-start: 0.98;
-    --beat-end: 0.64;
-  }
-}
-
-@media (max-width: 767px) {
-  :root {
-    --gutter: 16px;
-    --header-h: 56px;
-    --size-name: 18vw;
-    --size-hero-line: 7.6vw;
-    --size-line: 7.6vw;
-    --size-body: 16px;
-    --size-note: 13px;
-    --size-num: 56px;
-    --note-w: 100%;
-    --board-h: 47svh;
-    --board-pad: 10px;
-    --beat-end: 0.7;
-  }
+  /* motion */
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-quick: 320ms;
+  --dur-hover: 220ms;
+  --dur-reveal: 1000ms;
+  --dur-draw: 1400ms;         /* pencil underline under section titles */
+  --rise: 40px;
+  /* hero cycle, ms (read by main.js) */
+  --t-sketch: 1800;
+  --t-line: 1500;
+  --t-pic: 1000;
+  --t-hold: 2600;
+  --t-out: 400;
+  /* case boards: reveal window as a fraction of viewport travel (read by main.js) */
+  --board-start: 0.85;
+  --board-end: 0.3;
 }
